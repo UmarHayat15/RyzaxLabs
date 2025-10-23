@@ -238,7 +238,7 @@ export default function HeroHeader() {
                 <li className="relative group">
                   <button
                     type="button"
-                    className="inline-flex items-center gap-1 px-2 py-5 text-white transition-colors group-hover:text-[#0B4D8F] focus:outline-none"
+                    className="inline-flex items-center gap-1 px-2 py-5 text-white transition-colors group-hover:text-[#1080c0] focus:outline-none"
                     aria-expanded="false"
                   >
                     WHAT WE DO
