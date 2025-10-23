@@ -1,0 +1,520 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* --- HERO BACKGROUND (network image + gray veil + blue theme gradient) --- */
+.hero {
+  position: relative;
+  background-image:
+    /* blue theme gradient (left→right) */
+    linear-gradient(90deg, rgba(11,77,143,.70), rgba(11,77,143,.55), rgba(11,77,143,.35)),
+    /* gray veil */
+    linear-gradient(rgba(15,23,42,.30), rgba(15,23,42,.30)),
+    /* base image (network) */
+    url("https://expert-themes.com/html/globex/images/main-slider/image-1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* soft bottom fade (no extra DOM needed) */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 96px;
+  pointer-events: none;
+  background: linear-gradient(0deg, rgba(11,77,143,.40), transparent);
+}
+
+/* pattern helpers */
+.hero .pattern-left  { position:absolute; top:0; left:0;  opacity:.8; max-width:480px; pointer-events:none; user-select:none; }
+.hero .pattern-right { position:absolute; top:0; right:0; opacity:.8; max-width:520px; pointer-events:none; user-select:none; }
+
+/* responsive height + centering */
+.hero-inner {
+  min-height: clamp(520px, 72vh, 860px);
+  display: flex;
+  align-items: center;
+  padding-top: 7rem;   /* space similar to reference */
+  padding-bottom: 8rem;
+}
+
+
+/* Free Consulting button wedge (no Tailwind config needed) */
+.btn-consulting {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  background: #2f57ef;           /* main blue */
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 18px;
+  box-shadow: 0 10px 24px rgba(47,87,239,.28);
+  transition: filter .2s ease, transform .2s ease;
+}
+.btn-consulting:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.btn-consulting::after{
+  content:"";
+  position:absolute;
+  right:0; top:0; height:100%; width:16px;
+  background:#1d46d3;            /* darker wedge */
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  border-top-right-radius:8px; border-bottom-right-radius:8px;
+}
+
+/* === Free Consulting button with TILTED right-side blue strip === */
+.btn-consult {
+  --btn-blue:  #1062fe;   /* main bright blue */
+  --wedge:     #0f2342;   /* dark navy tilt */
+  --radius:    8px;
+  --wedge-w:   44px;      /* width of tilted strip */
+  --skew:      -22deg;    /* tilt angle */
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: var(--radius);
+  background: var(--btn-blue);
+  color: #fff;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(16, 98, 254, .25);
+  overflow: hidden;                /* clip wedge to rounded corners */
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+.btn-consult::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -12px;                    /* nudges the strip so the tilt meets the edge */
+  width: var(--wedge-w);
+  height: 100%;
+  background: var(--wedge);
+  transform: skewX(var(--skew));   /* gives the tilted look */
+  transform-origin: center;
+}
+.btn-consult:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+.btn-consult:active { transform: translateY(0); filter: brightness(1.02); }
+.btn-consult:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(16, 98, 254, .35); }
+
+
+
+
+/* ——— About section helpers ——— */
+.about-wrap { position: relative; }
+.about-right {
+  position: relative;
+  isolation: isolate;
+  background-image: url("https://expert-themes.com/html/globex/images/icons/globe.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 820px;
+  min-height: 820px;
+}
+.about-right::after{
+  content:"";
+  position:absolute; inset:0; z-index:-1;
+  background-image: url("https://expert-themes.com/html/globex/images/background/pattern-1.png");
+  background-repeat: no-repeat;
+  background-position: 80% 10%;
+  opacity:.25;
+}
+.about-stack { position: relative; }
+.about-photo {
+  border-radius: 14px;
+  box-shadow: 0 22px 50px rgba(0,0,0,.15);
+  overflow: hidden;
+}
+.about-photo img { display:block; width:100%; height:auto; }
+.ap-1 { width: 66%; }
+.ap-2 { width: 48%; position:absolute; left:52%; top:12%; }
+.ap-3 { width: 54%; position:absolute; left:6%; bottom:6%; }
+.ap-4 { width: 42%; position:absolute; right:4%; bottom:-4%; }
+
+.badge-dot { width:10px; height:10px; border-radius:999px; background:#0B4D8F; opacity:.15; }
+
+/* “Intro Video” button with tilted right strip */
+.btn-intro{
+  --btn:#1062fe; --tilt:#0f2342; --r:8px; --w:34px; --sk:-22deg;
+  position:relative; display:inline-flex; align-items:center; gap:.65rem;
+  padding:10px 18px; border-radius:var(--r); color:#fff; background:var(--btn);
+  font-weight:600; line-height:1; box-shadow:0 10px 24px rgba(16,98,254,.24);
+  overflow:hidden; transition:filter .18s ease, transform .18s ease;
+}
+.btn-intro::after{
+  content:""; position:absolute; top:0; right:-10px; height:100%; width:var(--w);
+  background:var(--tilt); transform:skewX(var(--sk)); transform-origin:center;
+}
+.btn-intro:hover{ filter:brightness(1.06); transform:translateY(-1px); }
+.play-chip{
+  width:28px; height:28px; border-radius:7px; display:grid; place-items:center;
+  background:#2a6dff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.18);
+}
+
+
+/* ---- Right column with globe BG (exact ref sizes) ---- */
+.about-right{
+  position: relative;
+  isolation: isolate; /* creates a local stacking context */
+  background: url("https://expert-themes.com/html/globex/images/icons/globe.png")
+              no-repeat right center / 820px; /* exact */
+  min-height: 820px;                          /* exact */
+}
+
+/* Rotating overlay sitting ABOVE globe BG, BELOW the images */
+.about-right::before{
+  content: "";
+  position: absolute;
+  left: -70px;          /* exact from reference */
+  top:  -150px;         /* exact from reference */
+  width: 745px;         /* exact */
+  height: 732px;        /* exact */
+  background: url("https://expert-themes.com/html/globex/images/background/pattern-1.png")
+              no-repeat center / contain;
+  pointer-events: none;
+  z-index: 0;           /* sits above element background, below .about-stack */
+  animation: rotateme 65s linear infinite;
+  transform-origin: 50% 50%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@keyframes rotateme {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Photo stack stays above the overlay */
+.about-stack{ position: relative; z-index: 1; }
+.about-photo{
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 22px 50px rgba(0,0,0,.15);
+}
+.about-photo img{ display:block; width:100%; height:auto; }
+
+/* Exact card sizes/positions (from your inspect) */
+.ap-1{ width:66%; }
+.ap-2{ width:48%; position:absolute; left:52%; top:12%; }
+.ap-3{ width:54%; position:absolute; left:6%;  bottom:6%; }
+.ap-4{ width:42%; position:absolute; right:4%; bottom:-4%; }
+
+/* (Optional) responsive safety */
+@media (max-width: 1024px){
+  .about-right{ background-size: 620px; min-height: 680px; }
+  .about-right::before{ left:-40px; top:-110px; width:600px; height:590px; }
+}
+@media (max-width: 640px){
+  .about-right{ background-size: 460px; min-height: 540px; }
+  .about-right::before{ left:-20px; top:-70px; width:430px; height:420px; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .about-right::before{ animation: none; }
+}
+
+
+
+
+/* ===== WHO WE ARE – deep navy + enlarged tech lines + pattern-2 ===== */
+.services-section{
+  position: relative;
+  background: #0f2342;
+  isolation: isolate;
+}
+
+/* tech lines (right side) — BIGGER */
+.services-section::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    url("https://expert-themes.com/html/globex/images/background/pattern-7.png")
+      no-repeat right center / 1400px;    /* was ~900px; now bigger */
+  opacity:.38;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* pattern-2 overlay (top-right) — BIGGER */
+.services-section::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    url("https://expert-themes.com/html/globex/images/background/pattern-2.png")
+      no-repeat right -30px / 760px auto; /* was ~560px; now bigger */
+  opacity:.7;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* responsive tuning */
+@media (min-width:1536px){
+  .services-section::before{ background-size: 1700px; }
+  .services-section::after { background-size: 920px; }
+}
+@media (max-width:1200px){
+  .services-section::before{ background-size: 1180px; }
+  .services-section::after { background-size: 620px;  }
+}
+@media (max-width:768px){
+  .services-section::before{ background-size: 900px;  opacity:.34; }
+  .services-section::after { background-size: 480px; opacity:.55; }
+}
+
+/* arrow chip + card hover (unchanged, still premium) */
+.svc-arrow{
+  position:absolute; right:0; bottom:0; width:48px; height:48px;
+  border-top-left-radius:8px; border-bottom-right-radius:8px;
+  background:#2f57ef; display:grid; place-items:center; color:#fff;
+  box-shadow:0 10px 22px rgba(47,87,239,.28);
+  transition:transform .18s ease, filter .18s ease;
+}
+.svc-card{ box-shadow:0 18px 40px rgba(0,0,0,.10); transition:transform .18s ease, box-shadow .18s ease; }
+.svc-card:hover{ transform:translateY(-6px); box-shadow:0 26px 60px rgba(0,0,0,.14); }
+.svc-card:hover .svc-arrow{ transform:translateY(-2px); filter:brightness(1.07); }
+
+
+/* ===== FEATURE BAND that overlaps the next section by half ===== */
+/* card height is 220px; we pull the whole row up by 110px and keep layout flow */
+.feature-overlap {
+  position: relative;
+  top: -110px;         /* pull up half the card height */
+  margin-bottom: -110px; /* so the next section (Who We Are) tucks under it */
+  z-index: 3;            /* above backgrounds but below header */
+}
+
+/* image card base */
+.feat-card {
+  position: relative;
+
+  height: 280px;                 /* exact visual height from your shot */
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0,0,0,.18);
+}
+
+/* dark blue film over the image (matches screenshot tone) */
+.feat-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(15, 35, 66, 0.62);   /* #0f2342 @ ~62% */
+}
+
+/* bottom hairline highlight (the light strip you see at the bottom) */
+.feat-card::after {
+  content: "";
+  position: absolute; left:0; right:0; bottom:0;
+  height: 3px;
+  background: rgba(255,255,255,.12);
+}
+
+/* subtle lift on hover */
+.feat-card:hover { transform: translateY(-3px); box-shadow: 0 26px 60px rgba(0,0,0,.22); transition: .2s ease; }
+
+
+
+
+/* ===== Services Two (blue head + overlapped cards) ===== */
+
+/* subtle entrance animation (stagger via delays) */
+@keyframes reveal-up {
+  from { transform: translateY(18px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+.reveal-up {
+  animation: reveal-up .6s ease-out both;
+  will-change: transform, opacity;
+}
+.reveal-delay-1 { animation-delay: .08s; }
+.reveal-delay-2 { animation-delay: .16s; }
+.reveal-delay-3 { animation-delay: .24s; }
+.reveal-delay-4 { animation-delay: .32s; }
+.reveal-delay-5 { animation-delay: .40s; }
+
+/* blue header’s faint decorative shapes (from Globex) */
+.services2-head {
+  position: relative;
+  isolation: isolate;
+  border-radius: 14px;
+  background: #1062fe; /* same vivid blue as Globex buttons */
+  overflow: hidden;
+}
+.services2-head .icon-one,
+.services2-head .icon-two,
+.services2-head .icon-three {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: .22;             /* faint like the reference */
+  pointer-events: none;
+  z-index: 0;
+}
+.services2-head .icon-one  { width:170px; height:170px; left:100px; top:  10px;
+  background-image:url("https://expert-themes.com/html/globex/images/icons/icon-1.png"); }
+.services2-head .icon-two  { width:200px; height:200px; right:120px; top: -12px;
+  background-image:url("https://expert-themes.com/html/globex/images/icons/icon-2.png"); }
+.services2-head .icon-three{ width:140px; height:140px; right: 60px; top:  90px;
+  background-image:url("https://expert-themes.com/html/globex/images/icons/icon-3.png"); }
+
+/* card polish */
+.svc2-card {
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(15,35,66,.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.svc2-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(0,0,0,.12);
+  border-color: rgba(16,98,254,.25);
+}
+
+/* icon tile inside card */
+.svc2-icon {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: #eef3ff;
+  display: grid; place-items: center;
+}
+.svc2-card:hover .svc2-icon { background: #e7efff; }
+
+/* icon stroke on hover */
+.svc2-card svg { transition: stroke .2s ease, transform .2s ease; }
+.svc2-card:hover svg { stroke: #1062fe; transform: translateY(-1px); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====== GLOBEX FOOTER (updated, patterns visible) ====== */
+.main-footer{
+  position: relative;
+  background: #0f2342;                 /* deep navy */
+  color: #c9d3df;
+  isolation: isolate;                  /* keep overlays local */
+}
+
+/* Left / Right transparent vector overlays (on top of bg) */
+.main-footer .pattern-layer-one,
+.main-footer .pattern-layer-two{
+  position: absolute;
+  top: 0;
+  bottom: 0;                           /* give them height so they render */
+  width: min(1200px, 48vw);            /* scale nicely on wide screens */
+  background-repeat: no-repeat;
+  background-size: contain;            /* keep vector sharp */
+  pointer-events: none;
+  z-index: 0;                          /* behind widgets, above bg color */
+  opacity: .9;                         /* visible over navy */
+}
+.main-footer .pattern-layer-one{
+  left: 0;
+  background-image: url("https://expert-themes.com/html/globex/images/background/pattern-7.png");
+  background-position: left center;
+}
+.main-footer .pattern-layer-two{
+  right: 0;
+  background-image: url("https://expert-themes.com/html/globex/images/background/pattern-8.png");
+  background-position: right center;
+}
+
+/* Keep content above overlays */
+.widgets-section,
+.footer-bottom { position: relative; z-index: 1; }
+
+/* Widgets */
+.footer-widget h5{
+  color:#fff; font-weight:700; margin:0 0 16px 0;
+}
+.footer-logo{ display:block; line-height:0; }
+.footer-text{ color:#c9d3df; opacity:.9; line-height:1.8; }
+
+/* Socials */
+.social-box{ display:flex; gap:10px; margin-top:16px; }
+.social-box a{
+  width:36px; height:36px; display:grid; place-items:center;
+  border-radius:999px; background:rgba(255,255,255,.1); color:#fff;
+  transition:.18s ease;
+}
+.social-box a:hover{ background:#2f57ef; box-shadow:0 8px 20px rgba(47,87,239,.35); }
+
+/* Quick links */
+.list-link{ display:grid; gap:10px; }
+.list-link a{
+  color:#c9d3df; opacity:.9; text-decoration:none; transition:color .15s ease, opacity .15s ease;
+}
+.list-link a:hover{ color:#fff; opacity:1; }
+
+/* Contact list */
+.contact-list{ display:grid; gap:16px; }
+.contact-list li{
+  display:grid; grid-template-columns:40px 1fr; column-gap:12px; align-items:start;
+}
+.contact-list .icon{
+  width:40px; height:40px; border-radius:10px; display:grid; place-items:center;
+  background:rgba(255,255,255,.08); color:#fff;
+}
+.contact-list strong{ color:#fff; display:block; font-weight:700; margin-bottom:2px; }
+
+/* Bottom bar */
+.footer-bottom .footer-nav{ display:flex; gap:22px; }
+.footer-bottom .footer-nav a{ color:#c9d3df; opacity:.9; text-decoration:none; }
+.footer-bottom .footer-nav a:hover{ color:#fff; opacity:1; }
+
+/* Responsive tweaks */
+@media (max-width: 1024px){
+  .main-footer .pattern-layer-one,  
+  .main-footer .pattern-layer-two{ width: 55vw; opacity:.85; }
+}
+@media (max-width: 640px){
+  .main-footer .pattern-layer-one,
+  .main-footer .pattern-layer-two{ width: 70vw; opacity:.75; }
+}
+
+
+
