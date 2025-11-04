@@ -30,15 +30,15 @@ const TechnologyCard = ({ icon, label, delay, index }) => {
 
       {/* Card */}
       <div
-        className={`relative border-2 border-dashed transition-all duration-700 ease-out p-12 flex flex-col items-center justify-center gap-6 backdrop-blur-sm ${
+        className={`relative border-2 border-dashed transition-all duration-700 ease-out p-4 sm:p-6 flex flex-col items-center justify-center gap-3 backdrop-blur-sm ${
           isHovered
             ? 'bg-white/95 border-blue-400 shadow-2xl shadow-blue-500/50 scale-105 -translate-y-2'
             : 'bg-white/5 border-gray-600/50 hover:border-gray-500'
         }`}
         style={{
-          borderRadius: '16px',
-          minHeight: '200px',
-          minWidth: '240px',
+          borderRadius: '12px',
+          minHeight: '140px',
+          aspectRatio: '1',
         }}
       >
         {/* Animated corner accents */}
@@ -97,14 +97,14 @@ const TechnologyCard = ({ icon, label, delay, index }) => {
         {/* Label */}
         <div className="relative">
           <span
-            className={`text-xl font-bold tracking-[0.2em] transition-all duration-500 relative ${
+            className={`text-xs sm:text-sm font-semibold tracking-wide transition-all duration-500 relative text-center ${
               isHovered ? 'text-gray-900' : 'text-white'
             }`}
           >
             {label}
             {/* Underline animation */}
             <span
-              className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-purple-500 transition-all duration-500 ${
+              className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-primary via-blue-400 to-cyan-400 transition-all duration-500 ${
                 isHovered ? 'w-full' : 'w-0'
               }`}
             />
@@ -142,9 +142,17 @@ const FloatingParticle = ({ delay, duration, x, y }) => {
 
 const TechIndexHero = () => {
   const [mounted, setMounted] = useState(false);
+  const [particles, setParticles] = useState([]);
 
   useEffect(() => {
     setMounted(true);
+    // Generate particles only on client side
+    setParticles(Array.from({ length: 30 }, (_, i) => ({
+      delay: Math.random() * 5,
+      duration: 10 + Math.random() * 10,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+    })));
   }, []);
 
   const technologies = [
@@ -272,24 +280,7 @@ const TechIndexHero = () => {
     delay: 500,
   },
 
-  // MAGENTO
-  {
-    id: 'magento',
-    label: 'Magento',
-    icon: (
-      <svg width="90" height="90" viewBox="0 0 90 90" fill="none">
-        <defs>
-          <linearGradient id="grad-magento" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f97316" />
-            <stop offset="100%" stopColor="#ea580c" />
-          </linearGradient>
-        </defs>
-        <polygon points="45,22 66,34 66,58 45,70 24,58 24,34" stroke="url(#grad-magento)" strokeWidth="2.8" fill="none"/>
-        <path d="M30 56V36l15-9 15 9v20" stroke="url(#grad-magento)" strokeWidth="2.8" fill="none"/>
-      </svg>
-    ),
-    delay: 600,
-  },
+
 
   // MONGODB
   {
@@ -412,13 +403,7 @@ const TechIndexHero = () => {
 ];
 
 
-  // Generate random particles
-  const particles = Array.from({ length: 30 }, (_, i) => ({
-    delay: Math.random() * 5,
-    duration: 10 + Math.random() * 10,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-  }));
+
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a]">
@@ -454,11 +439,13 @@ const TechIndexHero = () => {
       />
 
       {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden">
-        {particles.map((particle, i) => (
-          <FloatingParticle key={i} {...particle} />
-        ))}
-      </div>
+      {mounted && (
+        <div className="absolute inset-0 overflow-hidden">
+          {particles.map((particle, i) => (
+            <FloatingParticle key={i} {...particle} />
+          ))}
+        </div>
+      )}
 
       {/* Enhanced Circuit Patterns */}
       <div className="absolute inset-0 pointer-events-none">
@@ -484,55 +471,40 @@ const TechIndexHero = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-8 py-20">
         {/* Header Section */}
-        <div className={`text-center mb-24 max-w-4xl transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-          <div className="relative inline-block mb-8">
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 text-sm font-bold tracking-[0.4em] uppercase animate-pulse">
-              TECHNOLOGY INDEX
-            </p>
-            <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent" />
+        <div className={`text-center mb-16 max-w-5xl transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+          <div className="relative inline-block mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-semibold tracking-[0.2em] text-white/80 uppercase">
+                Technology Stack
+              </span>
+            </div>
           </div>
           
-          <h1 className="text-white text-6xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 tracking-tight">
-            <span className="inline-block animate-fade-in">We Deliver </span>
-            <span className="inline-block bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 text-transparent bg-clip-text animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Solutions
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] mb-4 tracking-tight">
+            <span className="inline-block animate-fade-in">Powering Innovation with </span>
+            <span className="inline-block bg-gradient-to-r from-primary via-blue-400 to-cyan-400 text-transparent bg-clip-text animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Modern Technologies
             </span>
-            <br />
-            <span className="inline-block animate-fade-in" style={{ animationDelay: '0.4s' }}>with the Goal of </span>
-            <span className="inline-block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 text-transparent bg-clip-text animate-fade-in" style={{ animationDelay: '0.6s' }}>
-              Trusting
-            </span>
-            <br />
-            <span className="inline-block animate-fade-in" style={{ animationDelay: '0.8s' }}>Workships</span>
           </h1>
 
-          <div className="h-1 w-32 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full" />
+          <p className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            We leverage cutting-edge technologies to build scalable, secure, and high-performance solutions that drive your business forward.
+          </p>
+
+          <div className="mt-6 h-0.5 w-24 mx-auto bg-gradient-to-r from-primary via-blue-400 to-cyan-400 rounded-full animate-fade-in" style={{ animationDelay: '0.6s' }} />
         </div>
 
         {/* Technology Cards Grid */}
-        <div className="flex flex-col items-center gap-10">
-          {/* Top Row - 3 cards */}
-          <div className="flex flex-wrap justify-center gap-10">
-            {technologies.slice(0, 6).map((tech, index) => (
+        <div className="w-full max-w-7xl">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8">
+            {technologies.map((tech, index) => (
               <TechnologyCard
                 key={tech.id}
                 icon={tech.icon}
                 label={tech.label}
                 delay={tech.delay}
                 index={index}
-              />
-            ))}
-          </div>
-
-          {/* Bottom Row - 3 cards */}
-          <div className="flex flex-wrap justify-center gap-10">
-            {technologies.slice(7, 12).map((tech, index) => (
-              <TechnologyCard
-                key={tech.id}
-                icon={tech.icon}
-                label={tech.label}
-                delay={tech.delay}
-                index={index + 3}
               />
             ))}
           </div>

@@ -1,54 +1,145 @@
 @import "tailwindcss";
 
+/* ===== PROFESSIONAL THEME SYSTEM ===== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light theme colors */
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
+  --primary: 11 77 143;
+  --primary-foreground: 255 255 255;
+  --secondary: 241 245 249;
+  --secondary-foreground: 15 23 42;
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+  --accent: 241 245 249;
+  --accent-foreground: 15 23 42;
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: 11 77 143;
+  --radius: 0.5rem;
+  
+  /* Custom brand colors */
+  --brand-blue: 11 77 143;
+  --brand-orange: 249 178 51;
+  --brand-navy: 15 35 66;
+  --brand-cyan: 59 177 245;
+}
+
+.dark {
+  /* Dark theme colors */
+  --background: 2 6 23;
+  --foreground: 248 250 252;
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+  --popover: 15 23 42;
+  --popover-foreground: 248 250 252;
+  --primary: 59 177 245;
+  --primary-foreground: 2 6 23;
+  --secondary: 30 41 59;
+  --secondary-foreground: 248 250 252;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+  --accent: 30 41 59;
+  --accent-foreground: 248 250 252;
+  --destructive: 239 68 68;
+  --destructive-foreground: 248 250 252;
+  --border: 30 41 59;
+  --input: 30 41 59;
+  --ring: 59 177 245;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: rgb(var(--background));
+  --color-foreground: rgb(var(--foreground));
+  --color-card: rgb(var(--card));
+  --color-card-foreground: rgb(var(--card-foreground));
+  --color-primary: rgb(var(--primary));
+  --color-primary-foreground: rgb(var(--primary-foreground));
+  --color-secondary: rgb(var(--secondary));
+  --color-secondary-foreground: rgb(var(--secondary-foreground));
+  --color-muted: rgb(var(--muted));
+  --color-muted-foreground: rgb(var(--muted-foreground));
+  --color-accent: rgb(var(--accent));
+  --color-accent-foreground: rgb(var(--accent-foreground));
+  --color-destructive: rgb(var(--destructive));
+  --color-destructive-foreground: rgb(var(--destructive-foreground));
+  --color-border: rgb(var(--border));
+  --color-input: rgb(var(--input));
+  --color-ring: rgb(var(--ring));
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #ededed;
-  }
+* {
+  border-color: rgb(var(--border));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 
-/* --- HERO BACKGROUND (network image + gray veil + blue theme gradient) --- */
+/* ===== ENHANCED HERO WITH THEME SUPPORT ===== */
 .hero {
   position: relative;
   background-image:
-    /* blue theme gradient (left→right) */
-    linear-gradient(90deg, rgba(11,77,143,.70), rgba(11,77,143,.55), rgba(11,77,143,.35)),
-    /* gray veil */
-    linear-gradient(rgba(15,23,42,.30), rgba(15,23,42,.30)),
-    /* base image (network) */
+    linear-gradient(90deg, 
+      rgba(var(--brand-blue), 0.75), 
+      rgba(var(--brand-blue), 0.60), 
+      rgba(var(--brand-blue), 0.40)
+    ),
+    linear-gradient(
+      rgba(var(--foreground), 0.15), 
+      rgba(var(--foreground), 0.15)
+    ),
     url("https://expert-themes.com/html/globex/images/main-slider/image-1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transition: all 0.3s ease;
 }
 
-/* soft bottom fade (no extra DOM needed) */
+.dark .hero {
+  background-image:
+    linear-gradient(90deg, 
+      rgba(var(--brand-cyan), 0.65), 
+      rgba(var(--brand-cyan), 0.50), 
+      rgba(var(--brand-cyan), 0.30)
+    ),
+    linear-gradient(
+      rgba(2, 6, 23, 0.60), 
+      rgba(2, 6, 23, 0.60)
+    ),
+    url("https://expert-themes.com/html/globex/images/main-slider/image-1.jpg");
+}
+
+/* Enhanced bottom fade with theme support */
 .hero::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 0;
   height: 96px;
   pointer-events: none;
-  background: linear-gradient(0deg, rgba(11,77,143,.40), transparent);
+  background: linear-gradient(0deg, rgba(var(--brand-blue), 0.40), transparent);
+  transition: background 0.3s ease;
+}
+
+.dark .hero::after {
+  background: linear-gradient(0deg, rgba(var(--brand-cyan), 0.35), transparent);
 }
 
 /* pattern helpers */
@@ -65,36 +156,41 @@ body {
 }
 
 
-/* Free Consulting button wedge (no Tailwind config needed) */
+/* ===== ENHANCED BUTTONS WITH THEME SUPPORT ===== */
 .btn-consulting {
   position: relative;
   display: inline-flex;
   align-items: center;
   border-radius: 8px;
-  background: #2f57ef;           /* main blue */
-  color: #fff;
+  background: rgb(var(--primary));
+  color: rgb(var(--primary-foreground));
   font-weight: 600;
   padding: 10px 18px;
-  box-shadow: 0 10px 24px rgba(47,87,239,.28);
-  transition: filter .2s ease, transform .2s ease;
+  box-shadow: 0 10px 24px rgba(var(--primary), 0.28);
+  transition: all 0.2s ease;
 }
-.btn-consulting:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.btn-consulting:hover { 
+  filter: brightness(1.06); 
+  transform: translateY(-1px);
+  box-shadow: 0 15px 35px rgba(var(--primary), 0.35);
+}
 .btn-consulting::after{
   content:"";
   position:absolute;
   right:0; top:0; height:100%; width:16px;
-  background:#1d46d3;            /* darker wedge */
+  background: rgba(var(--primary), 0.8);
   clip-path: polygon(0 0, 100% 50%, 0 100%);
   border-top-right-radius:8px; border-bottom-right-radius:8px;
+  transition: background 0.2s ease;
 }
 
-/* === Free Consulting button with TILTED right-side blue strip === */
+/* Enhanced tilted button with theme support */
 .btn-consult {
-  --btn-blue:  #1062fe;   /* main bright blue */
-  --wedge:     #0f2342;   /* dark navy tilt */
-  --radius:    8px;
-  --wedge-w:   44px;      /* width of tilted strip */
-  --skew:      -22deg;    /* tilt angle */
+  --btn-color: var(--primary);
+  --wedge-color: var(--brand-navy);
+  --radius: 8px;
+  --wedge-w: 44px;
+  --skew: -22deg;
 
   position: relative;
   display: inline-flex;
@@ -102,53 +198,89 @@ body {
   justify-content: center;
   padding: 10px 22px;
   border-radius: var(--radius);
-  background: var(--btn-blue);
-  color: #fff;
+  background: rgb(var(--btn-color));
+  color: rgb(var(--primary-foreground));
   font-weight: 600;
   line-height: 1;
-  box-shadow: 0 10px 24px rgba(16, 98, 254, .25);
-  overflow: hidden;                /* clip wedge to rounded corners */
-  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  box-shadow: 0 10px 24px rgba(var(--primary), 0.25);
+  overflow: hidden;
+  transition: all 0.18s ease;
 }
+
+.dark .btn-consult {
+  --btn-color: var(--brand-cyan);
+  --wedge-color: var(--background);
+}
+
 .btn-consult::after{
   content: "";
   position: absolute;
   top: 0;
-  right: -12px;                    /* nudges the strip so the tilt meets the edge */
+  right: -12px;
   width: var(--wedge-w);
   height: 100%;
-  background: var(--wedge);
-  transform: skewX(var(--skew));   /* gives the tilted look */
+  background: rgba(var(--wedge-color), 0.8);
+  transform: skewX(var(--skew));
   transform-origin: center;
+  transition: background 0.18s ease;
 }
+
 .btn-consult:hover {
   filter: brightness(1.06);
   transform: translateY(-1px);
+  box-shadow: 0 15px 35px rgba(var(--primary), 0.35);
 }
-.btn-consult:active { transform: translateY(0); filter: brightness(1.02); }
-.btn-consult:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(16, 98, 254, .35); }
+
+.btn-consult:active { 
+  transform: translateY(0); 
+  filter: brightness(1.02); 
+}
+
+.btn-consult:focus-visible { 
+  outline: none; 
+  box-shadow: 0 0 0 3px rgba(var(--ring), 0.35); 
+}
 
 
 
 
-/* ——— About section helpers ——— */
-.about-wrap { position: relative; }
+/* ===== ENHANCED ABOUT SECTION WITH THEME SUPPORT ===== */
+.about-wrap { 
+  position: relative;
+  transition: all 0.3s ease;
+  overflow-x: hidden;
+}
+
+.about-right {
+  overflow-x: hidden;
+}
+
 .about-right {
   position: relative;
   isolation: isolate;
   background-image: url("https://expert-themes.com/html/globex/images/icons/globe.png");
   background-repeat: no-repeat;
   background-position: right center;
-  background-size: 820px;
-  min-height: 820px;
+  background-size: 520px;
+  min-height: 520px;
+  transition: all 0.3s ease;
 }
+
 .about-right::after{
   content:"";
-  position:absolute; inset:0; z-index:-1;
+  position:absolute; 
+  inset:0; 
+  z-index:-1;
   background-image: url("https://expert-themes.com/html/globex/images/background/pattern-1.png");
   background-repeat: no-repeat;
   background-position: 80% 10%;
-  opacity:.25;
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+}
+
+.dark .about-right::after {
+  opacity: 0.15;
+  filter: invert(1) hue-rotate(180deg);
 }
 .about-stack { position: relative; }
 .about-photo {
@@ -157,10 +289,10 @@ body {
   overflow: hidden;
 }
 .about-photo img { display:block; width:100%; height:auto; }
-.ap-1 { width: 66%; }
-.ap-2 { width: 48%; position:absolute; left:52%; top:12%; }
-.ap-3 { width: 54%; position:absolute; left:6%; bottom:6%; }
-.ap-4 { width: 42%; position:absolute; right:4%; bottom:-4%; }
+.ap-1 { width: 56%; }
+.ap-2 { width: 38%; position:absolute; left:52%; top:12%; }
+.ap-3 { width: 44%; position:absolute; left:6%; bottom:6%; }
+.ap-4 { width: 32%; position:absolute; right:4%; bottom:-4%; }
 
 .badge-dot { width:10px; height:10px; border-radius:999px; background:#0B4D8F; opacity:.15; }
 
@@ -183,23 +315,23 @@ body {
 }
 
 
-/* ---- Right column with globe BG (exact ref sizes) ---- */
+/* ---- Right column with globe BG (smaller sizes) ---- */
 .about-right{
   position: relative;
   isolation: isolate; /* creates a local stacking context */
   background: url("https://expert-themes.com/html/globex/images/icons/globe.png")
-              no-repeat right center / 820px; /* exact */
-  min-height: 820px;                          /* exact */
+              no-repeat right center / 520px; /* smaller */
+  min-height: 520px;                          /* smaller */
 }
 
 /* Rotating overlay sitting ABOVE globe BG, BELOW the images */
 .about-right::before{
   content: "";
   position: absolute;
-  left: -70px;          /* exact from reference */
-  top:  -150px;         /* exact from reference */
-  width: 745px;         /* exact */
-  height: 732px;        /* exact */
+  left: 50px;           /* positive value to stay within bounds */
+  top:  -80px;          /* adjusted */
+  width: 500px;         /* smaller to fit */
+  height: 480px;        /* smaller to fit */
   background: url("https://expert-themes.com/html/globex/images/background/pattern-1.png")
               no-repeat center / contain;
   pointer-events: none;
@@ -248,35 +380,55 @@ body {
 
 
 
-/* ===== WHO WE ARE – deep navy + enlarged tech lines + pattern-2 ===== */
+/* ===== ENHANCED SERVICES SECTION WITH THEME SUPPORT ===== */
 .services-section{
   position: relative;
-  background: #0f2342;
+  background: rgb(var(--brand-navy));
   isolation: isolate;
+  transition: background-color 0.3s ease;
+  overflow-x: hidden;
 }
 
-/* tech lines (right side) — BIGGER */
+.dark .services-section {
+  background: rgb(var(--card));
+}
+
+/* Enhanced tech lines with theme support */
 .services-section::before{
   content:"";
-  position:absolute; inset:0;
+  position:absolute; 
+  inset:0;
   background:
     url("https://expert-themes.com/html/globex/images/background/pattern-7.png")
-      no-repeat right center / 1400px;    /* was ~900px; now bigger */
-  opacity:.38;
-  pointer-events:none;
-  z-index:0;
+      no-repeat right center / 1400px;
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* pattern-2 overlay (top-right) — BIGGER */
+.dark .services-section::before {
+  opacity: 0.25;
+  filter: invert(1) hue-rotate(180deg) brightness(0.8);
+}
+
+/* Enhanced pattern overlay with theme support */
 .services-section::after{
   content:"";
-  position:absolute; inset:0;
+  position:absolute; 
+  inset:0;
   background:
     url("https://expert-themes.com/html/globex/images/background/pattern-2.png")
-      no-repeat right -30px / 760px auto; /* was ~560px; now bigger */
-  opacity:.7;
-  pointer-events:none;
-  z-index:0;
+      no-repeat right -30px / 760px auto;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dark .services-section::after {
+  opacity: 0.4;
+  filter: invert(1) hue-rotate(180deg) brightness(0.6);
 }
 
 /* responsive tuning */
@@ -313,6 +465,7 @@ body {
   top: -110px;         /* pull up half the card height */
   margin-bottom: -110px; /* so the next section (Who We Are) tucks under it */
   z-index: 3;            /* above backgrounds but below header */
+  overflow-x: hidden;
 }
 
 /* image card base */
@@ -431,26 +584,40 @@ body {
 
 
 
-/* ====== GLOBEX FOOTER (updated, patterns visible) ====== */
+/* ===== ENHANCED FOOTER WITH THEME SUPPORT ===== */
 .main-footer{
   position: relative;
-  background: #0f2342;                 /* deep navy */
-  color: #c9d3df;
-  isolation: isolate;                  /* keep overlays local */
+  background: rgb(var(--brand-navy));
+  color: rgb(var(--muted-foreground));
+  isolation: isolate;
+  transition: all 0.3s ease;
+  overflow-x: hidden;
 }
 
-/* Left / Right transparent vector overlays (on top of bg) */
+.dark .main-footer {
+  background: rgb(var(--card));
+  color: rgb(var(--muted-foreground));
+}
+
+/* Enhanced footer patterns with theme support */
 .main-footer .pattern-layer-one,
 .main-footer .pattern-layer-two{
   position: absolute;
   top: 0;
-  bottom: 0;                           /* give them height so they render */
-  width: min(1200px, 48vw);            /* scale nicely on wide screens */
+  bottom: 0;
+  width: min(1200px, 45vw);
   background-repeat: no-repeat;
-  background-size: contain;            /* keep vector sharp */
+  background-size: contain;
   pointer-events: none;
-  z-index: 0;                          /* behind widgets, above bg color */
-  opacity: .9;                         /* visible over navy */
+  z-index: 0;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.dark .main-footer .pattern-layer-one,
+.dark .main-footer .pattern-layer-two {
+  opacity: 0.6;
+  filter: invert(1) hue-rotate(180deg) brightness(0.7);
 }
 .main-footer .pattern-layer-one{
   left: 0;
@@ -467,44 +634,154 @@ body {
 .widgets-section,
 .footer-bottom { position: relative; z-index: 1; }
 
-/* Widgets */
+/* Enhanced footer widgets with theme support */
 .footer-widget h5{
-  color:#fff; font-weight:700; margin:0 0 16px 0;
+  color: rgb(var(--primary-foreground));
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  transition: color 0.3s ease;
 }
-.footer-logo{ display:block; line-height:0; }
-.footer-text{ color:#c9d3df; opacity:.9; line-height:1.8; }
 
-/* Socials */
-.social-box{ display:flex; gap:10px; margin-top:16px; }
+.dark .footer-widget h5 {
+  color: rgb(var(--foreground));
+}
+
+.footer-logo{ 
+  display: block; 
+  line-height: 0;
+  transition: filter 0.3s ease;
+}
+
+.dark .footer-logo {
+  filter: brightness(1.2);
+}
+
+.footer-text{ 
+  color: rgb(var(--muted-foreground));
+  opacity: 0.9;
+  line-height: 1.8;
+  transition: color 0.3s ease;
+}
+
+/* Enhanced social links with theme support */
+.social-box{ 
+  display: flex; 
+  gap: 10px; 
+  margin-top: 16px; 
+}
+
 .social-box a{
-  width:36px; height:36px; display:grid; place-items:center;
-  border-radius:999px; background:rgba(255,255,255,.1); color:#fff;
-  transition:.18s ease;
+  width: 36px; 
+  height: 36px; 
+  display: grid; 
+  place-items: center;
+  border-radius: 999px; 
+  background: rgba(var(--primary-foreground), 0.1);
+  color: rgb(var(--primary-foreground));
+  transition: all 0.18s ease;
 }
-.social-box a:hover{ background:#2f57ef; box-shadow:0 8px 20px rgba(47,87,239,.35); }
 
-/* Quick links */
-.list-link{ display:grid; gap:10px; }
+.social-box a:hover{ 
+  background: rgb(var(--primary));
+  box-shadow: 0 8px 20px rgba(var(--primary), 0.35);
+  transform: translateY(-2px);
+}
+
+.dark .social-box a {
+  background: rgba(var(--foreground), 0.1);
+  color: rgb(var(--foreground));
+}
+
+.dark .social-box a:hover {
+  background: rgb(var(--primary));
+  color: rgb(var(--primary-foreground));
+}
+
+/* Enhanced footer links with theme support */
+.list-link{ 
+  display: grid; 
+  gap: 10px; 
+}
+
 .list-link a{
-  color:#c9d3df; opacity:.9; text-decoration:none; transition:color .15s ease, opacity .15s ease;
+  color: rgb(var(--muted-foreground));
+  opacity: 0.9;
+  text-decoration: none;
+  transition: all 0.15s ease;
 }
-.list-link a:hover{ color:#fff; opacity:1; }
 
-/* Contact list */
-.contact-list{ display:grid; gap:16px; }
+.list-link a:hover{ 
+  color: rgb(var(--primary));
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.dark .list-link a:hover {
+  color: rgb(var(--primary));
+}
+
+/* Enhanced contact list with theme support */
+.contact-list{ 
+  display: grid; 
+  gap: 16px; 
+}
+
 .contact-list li{
-  display:grid; grid-template-columns:40px 1fr; column-gap:12px; align-items:start;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 12px;
+  align-items: start;
 }
-.contact-list .icon{
-  width:40px; height:40px; border-radius:10px; display:grid; place-items:center;
-  background:rgba(255,255,255,.08); color:#fff;
-}
-.contact-list strong{ color:#fff; display:block; font-weight:700; margin-bottom:2px; }
 
-/* Bottom bar */
-.footer-bottom .footer-nav{ display:flex; gap:22px; }
-.footer-bottom .footer-nav a{ color:#c9d3df; opacity:.9; text-decoration:none; }
-.footer-bottom .footer-nav a:hover{ color:#fff; opacity:1; }
+.contact-list .icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: rgba(var(--primary-foreground), 0.08);
+  color: rgb(var(--primary-foreground));
+  transition: all 0.2s ease;
+}
+
+.dark .contact-list .icon {
+  background: rgba(var(--foreground), 0.08);
+  color: rgb(var(--foreground));
+}
+
+.contact-list strong{ 
+  color: rgb(var(--primary-foreground));
+  display: block;
+  font-weight: 700;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.dark .contact-list strong {
+  color: rgb(var(--foreground));
+}
+
+/* Enhanced footer bottom bar with theme support */
+.footer-bottom .footer-nav{ 
+  display: flex; 
+  gap: 22px; 
+}
+
+.footer-bottom .footer-nav a{ 
+  color: rgb(var(--muted-foreground));
+  opacity: 0.9;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.footer-bottom .footer-nav a:hover{ 
+  color: rgb(var(--primary));
+  opacity: 1;
+}
+
+.dark .footer-bottom .footer-nav a:hover {
+  color: rgb(var(--primary));
+}
 
 /* Responsive tweaks */
 @media (max-width: 1024px){

@@ -417,11 +417,11 @@ export default function WhatWeBrandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-3">
             {[
-              { src: "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200", href: "/work/case-study-1" },
-              { src: "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200", href: "/work/case-study-2" },
-              { src: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200", href: "/work/case-study-3" },
-            ].map(({ src, href }, i) => (
-              <Link key={src} href={href} className="group relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
+              { src: "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200" },
+              { src: "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200" },
+              { src: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200" },
+            ].map(({ src }, i) => (
+              <a key={src} href="/contact" className="group relative aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-slate-200 shadow-sm dark:ring-slate-800">
                 <Image
                   src={src}
                   alt={`Case study ${i + 1}`}
@@ -433,10 +433,10 @@ export default function WhatWeBrandingPage() {
                 <div className="absolute inset-x-4 bottom-4 flex items-center justify-between text-white opacity-0 transition group-hover:opacity-100">
                   <div className="text-sm font-semibold">Case Study {i + 1}</div>
                   <div className="inline-flex items-center gap-1 text-xs">
-                    View <ArrowRight className="w-3.5 h-3.5" />
+                    Contact <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

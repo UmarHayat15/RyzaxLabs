@@ -79,23 +79,23 @@ function SnapScroller({ items }) {
 export default function ITConsultationPage() {
   /* Images (royalty-free) */
   const heroBg =
-    "https://images.pexels.com/photos/1181352/pexels-photo-1181352.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000"; // boardroom/consulting
+    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2000&auto=format&fit=crop"; // IT consulting meeting
   const overviewImg =
-    "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop"; // IT strategy planning
   const engagementImg =
-    "https://images.pexels.com/photos/5686100/pexels-photo-5686100.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"; // Team collaboration
   const managedITImg =
-    "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop"; // Server infrastructure
   const supportImg =
-    "https://images.pexels.com/photos/3861970/pexels-photo-3861970.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1200&auto=format&fit=crop"; // IT support team
   const outsourcingImg =
-    "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"; // Cloud computing
   const enableImg =
-    "https://images.pexels.com/photos/3861975/pexels-photo-3861975.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?q=80&w=1200&auto=format&fit=crop"; // Digital transformation
   const dedicatedTeamImg =
-    "https://images.pexels.com/photos/3184312/pexels-photo-3184312.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop"; // Dedicated IT team
   const howWeWorkImg =
-    "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200";
+    "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1200&auto=format&fit=crop"; // IT workflow process
 
   /* Carousels / scrollers */
   const whyCards = [
@@ -149,7 +149,7 @@ export default function ITConsultationPage() {
   return (
     <main className="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
       {/* HERO */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden pt-20">
         <div className="absolute inset-0">
           <Image
             src={heroBg}
@@ -162,7 +162,7 @@ export default function ITConsultationPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-blue-900/40" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
           <div className="max-w-3xl">
             <div className="flex gap-2 flex-wrap">
               <Pill icon={Users2}>Staff Augmentation</Pill>

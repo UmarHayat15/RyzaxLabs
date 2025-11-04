@@ -1,246 +1,213 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-import { ArrowRight, BadgeCheck, CheckCircle2, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { 
+  ArrowRight, 
+  BadgeCheck, 
+  CheckCircle2, 
+  X, 
+  Code2, 
+  Rocket, 
+  Users, 
+  Trophy,
+  Star,
+  Globe,
+  Zap,
+  Shield,
+  Target,
+  Clock,
+  TrendingUp,
+  Sparkles
+} from "lucide-react";
 
-/*
-  =============================================
-  Website Development — ultra-modern page (JSX)
-  Matches the provided screenshot & inspect HTML, using the same images.
-  =============================================
-*/
+const banner = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2000&auto=format&fit=crop";
+const overviewImage = "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop";
 
-const banner = "https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=2000"; // remote hero // from inspect
-const overviewImage = "https://images.pexels.com/photos/6476584/pexels-photo-6476584.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200"; // remote overview image // from inspect
-
-// Per-tech modal content (shortened but faithful to the provided inspect code)
 const techs = [
   {
-    key: "nodejs",
-    title: "Nodejs",
-    subtitle: "Development",
-    excerpt:
-      "Modern businesses are rapidly adapting to the online digital space. Delivering a successful Digital asset is all about vision, planning and quality implementation...",
-    banner: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "web development services",
-    heroLine2: "Node.JS development company",
-    heroLine3: "We build powerful Website for the Node.JS platform",
+    key: "react",
+    title: "React & Next.js",
+    subtitle: "Modern Frontend",
+    excerpt: "Build lightning-fast, SEO-optimized web applications with React and Next.js. Server-side rendering, static generation, and cutting-edge performance.",
+    banner: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2000&auto=format&fit=crop",
+    heroLine1: "Frontend Excellence",
+    heroLine2: "React & Next.js Development",
+    heroLine3: "Building the future of web applications",
     sections: [
       {
-        heading: "Node.js development services",
+        heading: "React & Next.js Development Services",
         paragraphs: [
-          "Modern businesses are rapidly adapting to the online digital space. Delivering a successful Digital asset is all about vision, planning and quality implementation. It about aligning best practices with your business goal.",
-          "Node.js holds a crucial place in the modern technology stack offering an amazing scalability and performance. With event driven and non-blocking I/O, it’s a great choice for building network based solutions that demand high number of simultaneous connections and an impressive throughput.",
-          "At SeaTech, we live and breathe technology. With a team of experienced and highly skilled Node.JS developers, we craft powerful applications and ensure that your application architecture is proactively designed to meet future challenges and expansion.",
+          "React has revolutionized frontend development with its component-based architecture and virtual DOM. Combined with Next.js, we create blazing-fast applications with server-side rendering, automatic code splitting, and optimized performance.",
+          "Our React experts build scalable, maintainable applications that provide exceptional user experiences. From single-page applications to complex enterprise solutions, we leverage the full power of the React ecosystem.",
+          "With Next.js, we ensure your applications are SEO-friendly, performant, and ready for production from day one."
         ],
-        image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-      {
-        heading: "Nodejs web development services we offer",
-        bullets: [
-          "Node.JS Web Development",
-          "Node.JS Customization",
-          "Node.JS Module Development",
-          "Node.JS Migration",
-          "3rd Party Integrations",
-          "Web Services and APIs",
-          "Node.JS Consulting",
-          "NoSQL and SQL Database Integrations",
-          "Application Support and Maintenance",
-        ],
-        image: "https://images.pexels.com/photos/3862371/pexels-photo-3862371.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
   },
   {
-    key: "angular",
-    title: "Angular",
-    subtitle: "Development",
-    excerpt:
-      "In the mobile-centered world of today, firms are more focused on creating applications that can work seamlessly across platforms. This approach is critical...",
-    banner: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Web development services",
-    heroLine2: "Angular development company",
-    heroLine3: "For the Angular Platform, we create dynamic websites.",
+    key: "nodejs",
+    title: "Node.js",
+    subtitle: "Backend Development",
+    excerpt: "Scalable server-side applications with Node.js. Event-driven architecture, real-time capabilities, and high-performance APIs for modern web solutions.",
+    banner: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=2000&auto=format&fit=crop",
+    heroLine1: "Backend Excellence",
+    heroLine2: "Node.js Development",
+    heroLine3: "Powering scalable server-side solutions",
     sections: [
       {
-        heading: "Angular development services",
+        heading: "Node.js Development Services",
         paragraphs: [
-          "SeaTech - A Leading Player in Angular Consulting.",
-          "Angular is one of the best platforms available in the market to build and deploy mobile and desktop web applications.",
-          "SeaTech is a leading player in the Angular consulting and implementation market today. We help set the perfect Angular roadmap for you, guide you through implementation, and help you derive the maximum benefit out of it.",
+          "Node.js enables us to build fast, scalable network applications using JavaScript on the server-side. Its event-driven, non-blocking I/O model makes it perfect for data-intensive real-time applications.",
+          "Our Node.js expertise spans from RESTful APIs to real-time chat applications, microservices architecture, and enterprise-grade backend solutions.",
+          "We leverage the vast npm ecosystem to deliver robust, maintainable server-side applications that scale with your business needs."
         ],
-        image:
-          "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
+        image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
   },
   {
     key: "python",
-    title: "Python",
-    subtitle: "Development",
-    excerpt:
-      "An astronomical rise in the Mobile trend has transformed the way Businesses interact with their customers. Smart technologies are trying to bridge…",
+    title: "Python & Django",
+    subtitle: "Full-Stack Development",
+    excerpt: "Rapid development with Python and Django. Clean, pragmatic design for web applications, APIs, and data-driven solutions with robust security.",
     banner: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Machine learning and AI",
-    heroLine2: "Python",
-    heroLine3: "General purpose programming language",
+    heroLine1: "Python Excellence",
+    heroLine2: "Django Development",
+    heroLine3: "Rapid, secure, and scalable web solutions",
     sections: [
       {
-        heading: "Python",
+        heading: "Python & Django Development",
         paragraphs: [
-          "Data Science landscape is evolving rapidly and technologies for extracting Intelligence from Data are getting smarter with ML and Big Data.",
-          "At Fullestop, we use top Python tools for data pipelines, ML model building and serving, transforming your data asset into real business value.",
+          "Python's simplicity and Django's 'batteries-included' philosophy enable rapid development of secure, maintainable web applications.",
+          "We build everything from content management systems to complex data analytics platforms using Python's rich ecosystem.",
+          "Django's built-in security features, ORM, and admin interface accelerate development while ensuring enterprise-grade reliability."
         ],
-        image: "https://images.pexels.com/photos/574070/pexels-photo-574070.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
+        image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
   },
   {
     key: "laravel",
-    title: "Laravel",
-    subtitle: "Development",
-    excerpt:
-      "Fullestop, as a Laravel development company offers a complete skill set in the Laravel Customization and Laravel web development...",
+    title: "Laravel & PHP",
+    subtitle: "Backend Framework",
+    excerpt: "Elegant PHP development with Laravel. Expressive syntax, powerful features, and rapid development for modern web applications and APIs.",
     banner: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Web development services",
-    heroLine2: "Laravel Development Company",
-    heroLine3:
-      "Highly-Customized & Feature Rich Laravel Web Development to Empower Your Business.",
+    heroLine1: "PHP Excellence",
+    heroLine2: "Laravel Development",
+    heroLine3: "Elegant solutions for modern web development",
     sections: [
       {
-        heading: "Laravel development services",
+        heading: "Laravel Development Services",
         paragraphs: [
-          "SeaTech offers a complete skill set in Laravel Customization and Laravel web development.",
-          "Our result‑driven approach and end‑to‑end solutions have served many different businesses.",
+          "Laravel's elegant syntax and powerful features make PHP development a joy. We create robust, scalable applications with clean, maintainable code.",
+          "From e-commerce platforms to enterprise applications, Laravel's rich ecosystem enables rapid development without compromising quality.",
+          "Built-in features like Eloquent ORM, Blade templating, and Artisan CLI accelerate development while maintaining best practices."
         ],
-        image: "https://images.pexels.com/photos/3861973/pexels-photo-3861973.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
   },
   {
     key: "wordpress",
-    title: "Wordpress",
-    subtitle: "Development",
-    excerpt:
-      "Handling a large customer base from small business startups to large enterprises, SeaTech has gained relevant experience and strong expertise…",
+    title: "WordPress",
+    subtitle: "CMS Development",
+    excerpt: "Custom WordPress solutions from simple websites to complex applications. Theme development, plugin creation, and headless WordPress implementations.",
     banner: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Content management systems",
-    heroLine2: "WordPress Website Development Company",
-    heroLine3: "WordPress is loaded with many features, and trusted by millions.",
+    heroLine1: "CMS Excellence",
+    heroLine2: "WordPress Development",
+    heroLine3: "Powering the web with flexible content management",
     sections: [
       {
-        heading: "WordPress development services",
+        heading: "WordPress Development Services",
         paragraphs: [
-          "We elevate authentic quality standards and embed innovation‑driven methodologies with agile delivery.",
-          "Our experts integrate smooth and sophisticated visual features and details while enabling growth.",
+          "WordPress powers over 40% of the web, and we harness its full potential to create custom solutions tailored to your needs.",
+          "From custom themes and plugins to headless WordPress implementations, we extend WordPress beyond traditional boundaries.",
+          "Our WordPress expertise includes e-commerce integration, performance optimization, and enterprise-grade security implementations."
         ],
-        image:
-          "https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
+        image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
   },
   {
-    key: "cakephp",
-    title: "CakePHP",
-    subtitle: "Development",
-    excerpt:
-      "Experience the true power of CakePHP Development with Us. Be Scalable, Flexible and Smart...",
-    banner: "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Web development services",
-    heroLine2: "CakePHP Development Company",
-    heroLine3: "Experience the true power of CakePHP Development with Us.",
+    key: "ecommerce",
+    title: "E-Commerce",
+    subtitle: "Online Stores",
+    excerpt: "Complete e-commerce solutions with Shopify, WooCommerce, and custom platforms. Payment integration, inventory management, and conversion optimization.",
+    banner: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop",
+    heroLine1: "E-Commerce Excellence",
+    heroLine2: "Online Store Development",
+    heroLine3: "Driving sales with powerful e-commerce solutions",
     sections: [
       {
-        heading: "CakePHP development services",
+        heading: "E-Commerce Development Services",
         paragraphs: [
-          "Built on solid Design Patterns and Engineering Principles, CakePHP is a leading framework for modern web solutions.",
+          "We create powerful e-commerce platforms that drive sales and enhance customer experience. From Shopify customizations to custom-built solutions.",
+          "Our e-commerce expertise includes payment gateway integration, inventory management, order processing, and conversion rate optimization.",
+          "We build scalable online stores that grow with your business, supporting everything from small boutiques to enterprise marketplaces."
         ],
-        image:
-          "https://images.pexels.com/photos/3862383/pexels-photo-3862383.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
-  },
-  {
-    key: "dotnet",
-    title: "Microsoft",
-    subtitle: ".NET Development",
-    excerpt:
-      "In the era of iOS and iPhone Apps where everything is at the touch of your thumb, businesses can take the leverage of this smart technology to…",
-    banner:
-      "https://images.unsplash.com/photo-1551281044-8b89a4fd6f72?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Web development services",
-    heroLine2: "Asp .Net development company",
-    heroLine3: "ASP.NET web development services with optimum quality standards.",
-    sections: [
-      {
-        heading: "Asp .net development services",
-        paragraphs: [
-          "We are ardent supporters of Microsoft technologies. ASP.NET enables dynamic, high‑performing web apps and services.",
-        ],
-        image:
-          "https://images.pexels.com/photos/3862379/pexels-photo-3862379.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
-  },
-  {
-    key: "ror",
-    title: "Ruby On Rails",
-    subtitle: "Development",
-    excerpt:
-      "Critical to any company’s cloud implementation, architecture and automation are integral parts of any cloud service offered…",
-    banner: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Web development services",
-    heroLine2: "Ruby on rails development company",
-    heroLine3: "Cloud Ready RoR Apps with Uncompromised Quality and Performance",
-    sections: [
-      {
-        heading: "Ruby on rails development services",
-        paragraphs: [
-          "RoR is widely acknowledged for scalability, versatility and stability — ideal for RAD and agile delivery.",
-        ],
-        image:
-          "https://images.pexels.com/photos/177598/pexels-photo-177598.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
-  },
-  {
-    key: "lamp",
-    title: "Lamp (PHP/MySql)",
-    subtitle: "Solutions",
-    excerpt:
-      "Fullestop offers custom LAMP (Linux, Apache, MySQL, PHP) development solutions to help with offshore development, programming and e‑commerce…",
-    banner: "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?q=80&w=2000&auto=format&fit=crop",
-    heroLine1: "Web development services",
-    heroLine2: "LAMP and PHP web development company",
-    heroLine3: "LAMP developers help you get the best module for your project",
-    sections: [
-      {
-        heading: "LAMP and PHP web development services",
-        paragraphs: [
-          "We provide custom LAMP solutions – from enterprise ecommerce to portals and community tools.",
-        ],
-        image:
-          "https://images.pexels.com/photos/3862383/pexels-photo-3862383.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=1200",
-      },
-    ],
-  },
+        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1200&auto=format&fit=crop"
+      }
+    ]
+  }
 ];
 
-const techIcons = [
-  { name: "Angular", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
-  { name: "ASP.NET", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" },
-  { name: "Drupal", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/drupal/drupal-original.svg" },
-  { name: "HTML 5", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" },
-  { name: "Laravel", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-  { name: "Magento", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/magento/magento-original.svg" },
-  { name: "MongoDB", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "MySQL", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-  { name: "Node", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "PHP", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-  { name: "React", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Wordpress", src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" },
+const features = [
+  {
+    icon: <Rocket className="w-6 h-6" />,
+    title: "Lightning Fast",
+    description: "Optimized for speed with modern frameworks and best practices"
+  },
+  {
+    icon: <Shield className="w-6 h-6" />,
+    title: "Secure & Reliable",
+    description: "Enterprise-grade security and 99.9% uptime guarantee"
+  },
+  {
+    icon: <Globe className="w-6 h-6" />,
+    title: "SEO Optimized",
+    description: "Built for search engines with technical SEO best practices"
+  },
+  {
+    icon: <Zap className="w-6 h-6" />,
+    title: "Performance First",
+    description: "Core Web Vitals optimized for exceptional user experience"
+  }
+];
+
+const stats = [
+  { number: "500+", label: "Projects Delivered", icon: <Trophy className="w-5 h-5" /> },
+  { number: "98%", label: "Client Satisfaction", icon: <Star className="w-5 h-5" /> },
+  { number: "24/7", label: "Support Available", icon: <Clock className="w-5 h-5" /> },
+  { number: "10+", label: "Years Experience", icon: <Target className="w-5 h-5" /> }
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Discovery & Planning",
+    description: "We analyze your requirements, target audience, and business goals to create a comprehensive project roadmap.",
+    icon: <Target className="w-6 h-6" />
+  },
+  {
+    step: "02", 
+    title: "Design & Prototyping",
+    description: "Our designers create stunning, user-centric interfaces with interactive prototypes for validation.",
+    icon: <Sparkles className="w-6 h-6" />
+  },
+  {
+    step: "03",
+    title: "Development & Testing",
+    description: "Our developers build your solution using cutting-edge technologies with rigorous testing throughout.",
+    icon: <Code2 className="w-6 h-6" />
+  },
+  {
+    step: "04",
+    title: "Launch & Support",
+    description: "We deploy your project and provide ongoing support, maintenance, and optimization services.",
+    icon: <TrendingUp className="w-6 h-6" />
+  }
 ];
 
 function LearnMoreModal({ open, onClose, techKey }) {
@@ -250,58 +217,41 @@ function LearnMoreModal({ open, onClose, techKey }) {
 
   return (
     <div className="fixed inset-0 z-[100]">
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div className="absolute inset-0 overflow-y-auto p-4 sm:p-8">
-        <div className="mx-auto max-w-6xl rounded-2xl bg-white shadow-2xl ring-1 ring-black/5">
-          {/* Modal hero */}
+        <div className="mx-auto max-w-6xl rounded-2xl bg-card shadow-2xl ring-1 ring-border">
           <div className="relative h-[320px] overflow-hidden rounded-t-2xl">
             <Image src={item.banner} alt={`${item.title} banner`} fill className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
             <div className="relative z-10 h-full p-6 sm:p-10 text-white flex items-center">
               <div>
                 <p className="text-sm opacity-90">{item.heroLine1}</p>
-                <h3 className="text-3xl sm:text-5xl font-black leading-tight">
-                  {item.heroLine2}
-                </h3>
+                <h3 className="text-3xl sm:text-5xl font-black leading-tight">{item.heroLine2}</h3>
                 <p className="mt-1 text-sm sm:text-base opacity-90">{item.heroLine3}</p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow hover:bg-white"
+              className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow hover:bg-white transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
           </div>
 
-          {/* Content */}
           <div className="p-6 sm:p-10 space-y-12">
             {item.sections.map((s, idx) => (
               <div key={idx} className="grid gap-6 lg:grid-cols-2 lg:items-center">
                 <div>
-                  <p className="heading text-2xl font-extrabold">{s.heading}</p>
+                  <h4 className="text-2xl font-extrabold text-foreground">{s.heading}</h4>
                   {s.paragraphs && (
-                    <div className="mt-3 space-y-4 text-slate-700">
+                    <div className="mt-3 space-y-4 text-muted-foreground">
                       {s.paragraphs.map((p, i) => (
                         <p key={i}>{p}</p>
                       ))}
                     </div>
                   )}
-                  {s.bullets && (
-                    <ul className="mt-4 space-y-2">
-                      {s.bullets.map((b) => (
-                        <li key={b} className="flex items-start gap-2 text-slate-800">
-                          <CheckCircle2 className="mt-0.5 h-5 w-5 text-sky-600" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </div>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-slate-200">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-border">
                   <Image src={s.image} alt={s.heading} fill className="object-cover" />
                 </div>
               </div>
@@ -315,146 +265,285 @@ function LearnMoreModal({ open, onClose, techKey }) {
 
 export default function WebDevelopmentPage() {
   const [modalTech, setModalTech] = useState(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
-    <main className="bg-white text-slate-900">
+    <main className="bg-background text-foreground transition-colors duration-300">
       {/* HERO */}
-      <section className="relative overflow-hidden">
-        {/* animated background chips */}
-        <div className="pointer-events-none absolute -left-32 top-16 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
-        <div className="pointer-events-none absolute -right-24 -bottom-10 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+      <section className="relative overflow-hidden min-h-screen flex items-center pt-20">
         <div className="absolute inset-0">
-          <Image src={banner} alt="Website development banner" fill priority className="object-cover scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(transparent,rgba(0,0,0,0.3)_60%)]" />
+          <Image src={banner} alt="Web development" fill priority className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
         </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-          <div className="max-w-3xl text-white">
-            <h5 className="text-white/90">Driven to deliver</h5>
-            <h1 className="mt-2 text-4xl sm:text-5xl font-black leading-tight tracking-tight">
-              Website development company
+        
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-primary/20 rounded-full blur-xl animate-pulse" />
+          <div className="absolute top-40 right-32 w-24 h-24 bg-blue-500/20 rounded-full blur-xl animate-bounce" style={{animationDelay: '1s'}} />
+          <div className="absolute bottom-32 left-1/3 w-20 h-20 bg-purple-500/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}} />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-4xl text-white">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-semibold">Web Development Excellence</span>
+            </div>
+            
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black leading-[0.9] tracking-tight">
+              <span className="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+                Crafting Digital
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-primary via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Experiences
+              </span>
             </h1>
-            <p className="mt-3 text-white/90 max-w-2xl">
-              When it comes to high-end development we don’t forget about the basics. Delivering on time, on budget, and per scope. It’s what we’ve done for over a decade.
+            
+            <p className="mt-6 text-xl text-white/90 max-w-3xl leading-relaxed">
+              We build world-class web applications that combine stunning design with cutting-edge technology. 
+              From concept to deployment, we deliver solutions that drive business growth.
             </p>
-            <div className="mt-8 flex gap-3">
+            
+            <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#services"
-                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-5 py-3 font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white/20 hover:translate-y-[-1px]"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 font-semibold text-primary-foreground shadow-lg hover:bg-primary/90 hover:scale-105 transition-all duration-300"
               >
-                Explore services <ArrowRight className="h-4 w-4" />
+                Explore Services <ArrowRight className="h-4 w-4" />
               </a>
+              <a
+                href="#process"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3 font-semibold text-white ring-1 ring-white/20 backdrop-blur hover:bg-white/20 transition-all duration-300"
+              >
+                Our Process
+              </a>
+            </div>
+
+            {/* Stats */}
+            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="flex items-center justify-center gap-2 text-primary mb-2">
+                    {stat.icon}
+                    <span className="text-2xl font-bold text-white">{stat.number}</span>
+                  </div>
+                  <p className="text-sm text-white/80">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* OVERVIEW */}
-      <section className="py-16" id="overview">
+      {/* FEATURES */}
+      <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-sky-50 px-3 py-1 text-xs font-semibold text-sky-700 ring-1 ring-sky-200">
-                <BadgeCheck className="h-3.5 w-3.5" /> Web development services
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why Choose Our Web Development Services?
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We combine technical expertise with creative vision to deliver exceptional web solutions
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div key={index} className="group text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mb-4">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+                <p className="text-muted-foreground">{feature.description}</p>
               </div>
-              <h2 className="mt-4 text-3xl font-extrabold tracking-tight">
-                Web development services
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OVERVIEW */}
+      <section className="py-20" id="overview">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold text-primary ring-1 ring-primary/20 mb-6">
+                <BadgeCheck className="h-4 w-4" /> 
+                Web Development Services
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Building Tomorrow's Web Today
               </h2>
-              <div className="mt-4 space-y-4 text-slate-700">
+              
+              <div className="space-y-6 text-muted-foreground">
                 <p>
-                  Living in today's digital world, the Web has a much wider reach than any other form of digital media. As an invaluable and always accessible resource for information, it serves as a center of your online presence for your Business. Web Development starts with a well thought-out strategy and plan, understanding business goals, end user needs, and the competition. A strategically planned website helps establish credibility and provides an opportunity to tell your customers why they should trust you.
+                  In today's digital-first world, your website is often the first impression customers have of your business. 
+                  We create web experiences that not only look stunning but also drive conversions and business growth.
                 </p>
                 <p>
-                  In today's expanding digital marketplace, it just isn’t enough to show up. Engaging aspect of the website is one of the core elements of a successful online presence and Usability plays a vital role in the effectiveness of your online investment. However, Designing a usable system requires far more than simply applying technology.
+                  Our development process combines strategic thinking with technical excellence. We don't just build websites; 
+                  we craft digital solutions that solve real business problems and create lasting value.
                 </p>
                 <p>
-                  Knowing and understanding your online customers and meeting their expectations is the key that sets your web presence apart from your competition. Optimizing the User Experience helps optimize your success and humanize your relationship with your online visitors. The process of constructing a perfect usability strategy can be complex and requires deep analysis of the user behaviour and research based guidelines.
+                  From responsive design to performance optimization, security implementation to SEO best practices, 
+                  every aspect of our development process is designed to deliver exceptional results.
                 </p>
+              </div>
+
+              <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  <span className="text-foreground font-medium">Responsive Design</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  <span className="text-foreground font-medium">SEO Optimized</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  <span className="text-foreground font-medium">Fast Loading</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  <span className="text-foreground font-medium">Secure & Reliable</span>
+                </div>
               </div>
             </div>
-            <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-xl ring-1 ring-slate-200 shadow-lg">
-                <Image src={overviewImage} alt="services" fill className="object-cover" />
+            
+            <div className="relative">
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl ring-1 ring-border shadow-2xl">
+                <Image src={overviewImage} alt="Web development services" fill className="object-cover" />
               </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* SERVICES GRID */}
-      <section id="services" className="py-16 bg-slate-50">
+      <section id="services" className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <p className="heading text-lg font-semibold">
-              Innovation & excellence powered by latest technology
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our Technology Stack
+            </h2>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              We use cutting-edge technologies and frameworks to build scalable, maintainable, and high-performance web applications
             </p>
           </div>
 
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {techs.map((t) => (
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {techs.map((tech, index) => (
               <div
-                key={t.key}
-                onClick={() => setModalTech(t.key)}
-                className="relative group cursor-pointer overflow-hidden rounded-2xl bg-white/80 p-6 ring-1 ring-slate-200 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                key={tech.key}
+                onClick={() => setModalTech(tech.key)}
+                className="group relative cursor-pointer overflow-hidden rounded-2xl bg-card p-6 ring-1 ring-border shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
-                {/* gradient border glow */}
-                <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300" style={{background:"linear-gradient(120deg, rgba(56,189,248,0.35), rgba(59,130,246,0.35), rgba(236,72,153,0.35))", padding:1}} />
-                {/* sheen */}
-                <div className="pointer-events-none absolute -top-24 -left-10 h-48 w-48 rotate-12 rounded-full bg-sky-400/20 blur-2xl group-hover:opacity-90 opacity-0 transition" />
+                {/* Glow Effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-blue-500/20 to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+                
+                {/* Content */}
                 <div className="relative">
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h4 className="text-xl font-semibold tracking-tight">{t.title}</h4>
-                      <div className="mt-1 inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
-                        {t.subtitle}
-                      </div>
+                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                        {tech.title}
+                      </h3>
+                      <span className="inline-block mt-1 px-3 py-1 text-xs font-semibold bg-primary/10 text-primary rounded-full">
+                        {tech.subtitle}
+                      </span>
                     </div>
-                    {/* preview thumb */}
-                    <div className="relative h-12 w-16 overflow-hidden rounded-md ring-1 ring-slate-200">
-                      <Image src={t.sections?.[0]?.image || t.banner} alt={`${t.title} preview`} fill className="object-cover transition duration-300 group-hover:scale-110" />
+                    <div className="w-12 h-12 rounded-lg overflow-hidden ring-1 ring-border">
+                      <Image 
+                        src={tech.sections?.[0]?.image || tech.banner} 
+                        alt={tech.title} 
+                        width={48} 
+                        height={48} 
+                        className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-300" 
+                      />
                     </div>
                   </div>
-                  <p className="mt-3 text-slate-600 line-clamp-3">
-                    {t.excerpt}
+                  
+                  <p className="text-muted-foreground mb-4 line-clamp-3">
+                    {tech.excerpt}
                   </p>
-                  {/* <div className="mt-5 flex items-center gap-2 text-sky-700 font-semibold">
-                    <span className="transition group-hover:translate-x-1">Open details</span>
-                    <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-                  </div> */}
+                  
+                  <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all duration-300">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
                 </div>
-                {/* bottom gradient bar */}
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-sky-500 via-blue-600 to-fuchsia-500 opacity-0 group-hover:opacity-100" />
+
+                {/* Bottom Accent */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TECHNOLOGIES */}
-      <section className="bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center">
-            <p className="text-3xl font-bold text-white">
-              Web <span className="text-yellow-400">technologies</span> we work with
-            </p>
-            <p className="mt-3 text-white/80 max-w-4xl mx-auto">
-              Our elite team of young and highly skilled web developers possesses in-depth knowledge of design and excels in various scripting and coding languages such as Node, Angular, React, Laravel, MongoDB, HTML5, PHP, ASP.NET and Wordpress. We also hold proficiency in CSS3, Magento, CMS and object modeling.
+      {/* PROCESS */}
+      <section id="process" className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our Development Process
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              A proven methodology that ensures successful project delivery from concept to launch
             </p>
           </div>
 
-          <ul className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {techIcons.map((icon) => (
-              <li
-                key={icon.name}
-                className="flex flex-col items-center justify-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 text-center"
-              >
-                {/* <div className="relative h-10 w-10">
-                  <Image src={icon.src} alt={icon.name} fill className="object-contain" />
-                </div> */}
-                <strong className="text-white text-sm">{icon.name}</strong>
-              </li>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {process.map((step, index) => (
+              <div key={index} className="relative group">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mb-4">
+                    {step.icon}
+                  </div>
+                  <div className="text-4xl font-black text-primary/20 mb-2">{step.step}</div>
+                  <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
+                </div>
+                
+                {/* Connector Line */}
+                {index < process.length - 1 && (
+                  <div className="hidden lg:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent transform translate-x-4" />
+                )}
+              </div>
             ))}
-          </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 bg-gradient-to-r from-primary via-blue-600 to-purple-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Ready to Build Something Amazing?
+          </h2>
+          <p className="text-xl text-white/90 mb-8">
+            Let's discuss your project and create a web solution that drives results
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 font-semibold text-primary shadow-lg hover:bg-white/90 hover:scale-105 transition-all duration-300"
+            >
+              Start Your Project <ArrowRight className="h-5 w-5" />
+            </a>
+            <a
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-8 py-4 font-semibold text-white ring-1 ring-white/20 backdrop-blur hover:bg-white/20 transition-all duration-300"
+            >
+              Get Quote
+            </a>
+          </div>
         </div>
       </section>
 

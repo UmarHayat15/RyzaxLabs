@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-[1000px] px-6">
           <p className="text-[15px] leading-7 text-slate-700">
-            SeaTech Consulting (“SeaTech,” “we,” “our,” or “us”) respects your privacy. This
+            Ryzax (“Ryzax,” “we,” “our,” or “us”) respects your privacy. This
             Privacy Policy explains how we collect, use, disclose, and protect information when you
             visit our websites, contact us, or use our products and services (collectively, the
             “Services”). If you do not agree with this Policy, please do not use the Services.

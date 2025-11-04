@@ -8,8 +8,8 @@ import { projects } from "@/app/projects/data";
 
 export default function ClientSpotlight({
   clickable = false,
-  pixelsPerSecond = 90,  // auto-slide speed
-  gap = 96,              // space between logos
+  speed = 28,            // animation speed in seconds
+  gap = 48,              // space between logos
   railBg = "#0F172A",    // dark rail for white icons (slate-900)
 }) {
   const items = useMemo(
@@ -17,63 +17,9 @@ export default function ClientSpotlight({
     []
   );
 
-  // triple buffer so the scroll loop is seamless
-  const data = useMemo(() => [...items, ...items, ...items], [items]);
-
-  const railRef = useRef(null);
-  const measureRef = useRef(null); // single set
-  const rafRef = useRef(0);
-  const lastTsRef = useRef(0);
-  const [setWidth, setSetWidth] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  // measure one set width
-  useEffect(() => {
-    const measure = () => {
-      if (measureRef.current) setSetWidth(measureRef.current.scrollWidth);
-    };
-    measure();
-    const ro = new ResizeObserver(measure);
-    if (measureRef.current) ro.observe(measureRef.current);
-    if (railRef.current) ro.observe(railRef.current);
-    const t1 = setTimeout(measure, 300);
-    const t2 = setTimeout(measure, 1200);
-    return () => {
-      ro.disconnect();
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, [gap, data.length]);
 
-  // continuous auto-scroll loop
-  useEffect(() => {
-    if (!railRef.current || !setWidth) return;
-    const el = railRef.current;
-
-    const loop = (ts) => {
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (paused || reduce) {
-        lastTsRef.current = ts;
-        rafRef.current = requestAnimationFrame(loop);
-        return;
-      }
-
-      const dt = lastTsRef.current ? (ts - lastTsRef.current) / 1000 : 0;
-      lastTsRef.current = ts;
-
-      const dx = pixelsPerSecond * dt;
-      el.scrollLeft += dx;
-
-      // keep the viewport centered in the middle set for endless flow
-      if (el.scrollLeft >= setWidth * 2) {
-        el.scrollLeft -= setWidth;
-      }
-      rafRef.current = requestAnimationFrame(loop);
-    };
-
-    rafRef.current = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafRef.current);
-  }, [pixelsPerSecond, setWidth, paused]);
 
   // pause when tab hidden
   useEffect(() => {
@@ -132,35 +78,42 @@ export default function ClientSpotlight({
             style={{ background: `linear-gradient(270deg, ${railBg} 0%, rgba(15,23,42,0) 100%)` }}
           />
 
-          {/* scrolling rail */}
-          <div
-            ref={railRef}
-            className="no-scrollbar relative mx-auto flex overflow-x-scroll scroll-smooth"
-            style={{
-              WebkitOverflowScrolling: "touch",
-              gap: `${gap}px`,
-              padding: "28px 28px",
-            }}
-          >
-            {/* SET A (measured) */}
-            <ul ref={measureRef} className="flex items-center" style={{ gap: `${gap}px` }}>
-              {items.map((it, i) => <Tile key={`a-${it.slug}-${i}`} item={it} />)}
-            </ul>
-            {/* SET B */}
-            <ul className="flex items-center" style={{ gap: `${gap}px` }} aria-hidden="true">
-              {items.map((it, i) => <Tile key={`b-${it.slug}-${i}`} item={it} />)}
-            </ul>
-            {/* SET C */}
-            <ul className="flex items-center" style={{ gap: `${gap}px` }} aria-hidden="true">
-              {items.map((it, i) => <Tile key={`c-${it.slug}-${i}`} item={it} />)}
-            </ul>
+          {/* scrolling rail with CSS animation */}
+          <div className="relative overflow-hidden py-7">
+            <div 
+              className={`flex items-center ${paused ? '' : 'animate-scroll'}`}
+              style={{
+                gap: `${gap}px`,
+                animationDuration: `${speed}s`,
+                width: 'max-content'
+              }}
+            >
+              {/* Duplicate items for seamless loop */}
+              {[...items, ...items].map((item, i) => (
+                <Tile key={`${item.slug}-${i}`} item={item} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-scroll {
+            animation: none;
+          }
+        }
       `}</style>
     </section>
   );
