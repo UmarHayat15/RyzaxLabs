@@ -252,7 +252,7 @@ export default function PrivacyPolicyPage() {
                 Call: 923010006837
               </a>
               <a
-                href="mailto:info@synxta.com"
+                href="mailto:contact@synxta.com"
                 className="inline-flex items-center rounded-md bg-[#0B4D8F] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:brightness-110"
               >
                 Email: contact@synxta.com

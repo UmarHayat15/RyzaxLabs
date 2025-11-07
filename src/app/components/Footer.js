@@ -133,7 +133,7 @@ export default function Footer(){
                     </span>
                     <div>
                       <strong>Email Us</strong>
-                      <a href="mailto:info@synxta.com" className="hover:text-primary hover:underline transition-all duration-200">contact@Synxta.com</a>
+                      <a href="mailto:contact@synxta.com" className="hover:text-primary hover:underline transition-all duration-200">contact@Synxta.com</a>
                     </div>
                   </li>
                   

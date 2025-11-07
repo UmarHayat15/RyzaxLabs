@@ -452,7 +452,7 @@ export default function HeroHeader() {
                       <span className="h-3 w-px bg-border" />
                       <Link
                         className="underline decoration-dotted hover:text-primary transition-colors"
-                        href="mailto:info@synxta.com"
+                        href="mailto:contact@synxta.com"
                       >
                         contact@synxta.com
                       </Link>
