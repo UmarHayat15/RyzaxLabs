@@ -74,7 +74,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Call Us</h3>
                 <p className="text-muted-foreground mb-4">Speak directly with our team</p>
-                <a href="tel:+923001234567" className="text-primary font-semibold hover:underline">
+                <a href="tel:+923010006837" className="text-primary font-semibold hover:underline">
             +92 301 0006837
                 </a>
               </div>

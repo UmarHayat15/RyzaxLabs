@@ -446,8 +446,8 @@ export default function HeroHeader() {
                     <p>Building the Future of Digital</p>
                     <p>Islamabad, Pakistan</p>
                     <div className="mt-2 flex items-center gap-3">
-                      <Link href="tel:+923001234567" className="underline decoration-dotted hover:text-primary transition-colors">
-                        +92 300 1234567
+                      <Link href="tel:+923010006837" className="underline decoration-dotted hover:text-primary transition-colors">
+                        +92 301 0006837
                       </Link>
                       <span className="h-3 w-px bg-border" />
                       <Link
