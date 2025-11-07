@@ -9,15 +9,15 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata = {
-  metadataBase: new URL("https://www.ryzax.com"),
+  metadataBase: new URL("https://www.Synxta.com"),
   title: {
-    default: "Ryzax Technologies | Web, Cloud & Digital Solutions",
-    template: "%s | Ryzax Technologies",
+    default: "Synxta | Web, Cloud & Digital Solutions",
+    template: "%s | Synxta",
   },
   description:
-    "Ryzax Technologies empowers businesses with modern web solutions, cloud infrastructure, DevOps automation, and custom software development. Based in Islamabad, Pakistan — delivering globally.",
+    "Synxta empowers businesses with modern web solutions, cloud infrastructure, DevOps automation, and custom software development. Based in Islamabad, Pakistan — delivering globally.",
   keywords: [
-    "Ryzax Technologies",
+    "Synxta",
     "web development Islamabad",
     "cloud consulting Pakistan",
     "DevOps automation",
@@ -31,26 +31,26 @@ export const metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: "https://www.ryzax.com/",
-    siteName: "Ryzax Technologies",
-    title: "Ryzax Technologies — Building the Future of Digital",
+    url: "https://www.Synxta.com/",
+    siteName: "Synxta",
+    title: "Synxta — Building the Future of Digital",
     description:
-      "Ryzax delivers high-performance web, cloud, and DevOps solutions. Trusted by startups and enterprises worldwide.",
+      "Synxta delivers high-performance web, cloud, and DevOps solutions. Trusted by startups and enterprises worldwide.",
     images: [
       {
         url: "/og/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Ryzax Technologies",
+        alt: "Synxta",
       },
     ],
     locale: "en_PK",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ryzax Technologies — Web, Cloud & DevOps Experts",
+    title: "Synxta — Web, Cloud & DevOps Experts",
     description:
-      "Ryzax Technologies builds modern, scalable solutions for web, cloud, and digital transformation.",
+      "Synxta builds modern, scalable solutions for web, cloud, and digital transformation.",
     images: ["/og/og-default.jpg"],
   },
   robots: {

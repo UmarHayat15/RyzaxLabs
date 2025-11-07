@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
-/** Ryzax Technologies Hero Slider — Professional showcase with theme support, auto-play, crossfade, Ken Burns, parallax, dots, keyboard, swipe */
+/** Synxta Hero Slider — Professional showcase with theme support, auto-play, crossfade, Ken Burns, parallax, dots, keyboard, swipe */
 
 const SLIDES = [
   {
@@ -122,7 +122,7 @@ export default function HeroSlider() {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
       aria-roledescription="carousel"
-      aria-label="Ryzax Technologies services hero"
+      aria-label="Synxta services hero"
     >
       {/* Slides */}
       {SLIDES.map((s, i) => {

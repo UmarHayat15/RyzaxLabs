@@ -24,7 +24,7 @@ export default function ContactPage() {
     e.preventDefault();
     setSending(true);
     
-    const mailto = `mailto:info@ryzax.com?subject=Contact from ${form.name}&body=Name: ${form.name}%0D%0AEmail: ${form.email}%0D%0ATopic: ${form.topic}%0D%0A%0D%0AMessage:%0D%0A${form.message}`;
+    const mailto = `mailto:info@synxta.com?subject=Contact from ${form.name}&body=Name: ${form.name}%0D%0AEmail: ${form.email}%0D%0ATopic: ${form.topic}%0D%0A%0D%0AMessage:%0D%0A${form.message}`;
     
     setTimeout(() => {
       setSending(false);
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-foreground mb-3">Call Us</h3>
                 <p className="text-muted-foreground mb-4">Speak directly with our team</p>
                 <a href="tel:+923001234567" className="text-primary font-semibold hover:underline">
-            +92 3010 006837
+            +92 301 0006837
                 </a>
               </div>
             </div>
@@ -88,8 +88,8 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3">Email Us</h3>
                 <p className="text-muted-foreground mb-4">Send us a detailed message</p>
-                <a href="mailto:info@ryzax.com" className="text-primary font-semibold hover:underline">
-                  info@ryzax.com
+                <a href="mailto:info@synxta.com" className="text-primary font-semibold hover:underline">
+                  contact@synxta.com
                 </a>
               </div>
             </div>

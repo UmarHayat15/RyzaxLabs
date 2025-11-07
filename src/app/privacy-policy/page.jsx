@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Privacy Policy | Ryzax",
+  title: "Privacy Policy | Synxta",
   description:
     "Privacy Policy for Rssyzax. Learn how we collect, use, and protect your information across our digital products and services.",
 };
@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
       <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-[1000px] px-6">
           <p className="text-[15px] leading-7 text-slate-700">
-            Ryzax (“Ryzax,” “we,” “our,” or “us”) respects your privacy. This
+            Synxta (“Synxta,” “we,” “our,” or “us”) respects your privacy. This
             Privacy Policy explains how we collect, use, disclose, and protect information when you
             visit our websites, contact us, or use our products and services (collectively, the
             “Services”). If you do not agree with this Policy, please do not use the Services.
@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
             <div className="rounded-lg border border-slate-200 p-4">
               <p className="text-xs font-semibold tracking-wide text-[#0B4D8F]">CONTACT</p>
               <p className="mt-1 text-[14px] text-slate-700">
-                info@ryzax.com • order@ryzax.com
+                contact@synxta.com • order@synxta.com
               </p>
             </div>
             <div className="rounded-lg border border-slate-200 p-4">
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="mt-10 text-2xl font-bold">1) Scope</h2>
           <p className="mt-2 text-[15px] leading-7 text-slate-700">
             This Policy applies to information we process in connection with our Services, including
-            our websites (e.g., ryzax.com and related pages), contact forms, proposals,
+            our websites (e.g., synxta.com and related pages), contact forms, proposals,
             project communications, and client portals. It does not cover third-party websites or
             services that we do not control.
           </p>
@@ -201,9 +201,9 @@ export default function PrivacyPolicyPage() {
               To exercise rights, email{" "}
               <a
                 className="underline decoration-dotted text-[#0B4D8F] hover:brightness-110"
-                href="mailto:info@ryzax.com"
+                href="mailto:contact@synxta.com"
               >
-                info@ryzax.com
+                contact@synxta.com
               </a>{" "}
               with “Privacy Request” in the subject. We may need to verify your identity.
             </p>
@@ -240,7 +240,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="mt-8 text-2xl font-bold">18) Contact Us</h2>
           <div className="mt-3 rounded-lg border border-slate-200 p-5">
             <p className="text-[15px] leading-7 text-slate-700">
-              <span className="font-semibold">Ryzax </span> <br />
+              <span className="font-semibold">Synxta </span> <br />
           Office no. 3050A World Trade Centre <br />
            Giga Mall Islamabad, Pakistan
             </p>
@@ -252,10 +252,10 @@ export default function PrivacyPolicyPage() {
                 Call: 923010006837
               </a>
               <a
-                href="mailto:info@ryzax.com"
+                href="mailto:info@synxta.com"
                 className="inline-flex items-center rounded-md bg-[#0B4D8F] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:brightness-110"
               >
-                Email: info@ryzax.com
+                Email: contact@synxta.com
               </a>
             </div>
           </div>

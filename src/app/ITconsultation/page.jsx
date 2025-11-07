@@ -361,7 +361,7 @@ export default function ITConsultationPage() {
           {/* Benefits of working with SeaTech */}
           <div className="mt-16 grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold">Benefits of working with Ryzax</h3>
+              <h3 className="text-2xl font-bold">Benefits of working with Synxta</h3>
               <ul className="mt-4 space-y-3 text-slate-700 dark:text-slate-200">
                 <CheckItem>Dedicated resources focused on your project</CheckItem>
                 <CheckItem>Best value for your investment</CheckItem>
@@ -404,7 +404,7 @@ export default function ITConsultationPage() {
                 uphold well-defined processes to consistently meet delivery and quality benchmarks.
               </p>
               <p className="mt-3 text-slate-600 dark:text-slate-300">
-                <b>Ryzax is a CMMI level 3 certified organization.</b> We implement world-class
+                <b>Synxta is a CMMI level 3 certified organization.</b> We implement world-class
                 systems and streamline service delivery around your needs.
               </p>
               <p className="mt-3 text-slate-600 dark:text-slate-300">
@@ -505,7 +505,7 @@ export default function ITConsultationPage() {
 
           {/* Why choose us */}
           <div className="mt-16">
-            <h3 className="text-center text-3xl font-bold">Why Ryzax — because we deliver</h3>
+            <h3 className="text-center text-3xl font-bold">Why Synxta — because we deliver</h3>
             <SnapScroller items={whyCards} />
           </div>
         </div>

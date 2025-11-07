@@ -13,7 +13,7 @@ export default function Footer(){
             <div className="lg:col-span-1">
               <div className="footer-widget logo-widget">
                 <a href="./" className="footer-logo flex items-center w-[140px] gap-3 select-none cursor-pointer hover:scale-105 transition-transform duration-300">
-                  <img src="/images/ryzax.png" alt="Ryzax Technologies"/>
+                  <img src="/images/Synxta.png" alt="Synxta"/>
                 </a>
                 <p className="footer-text mt-4">
                   Leading IT solutions provider with 25+ years of experience. We deliver innovative technology solutions that drive business growth and digital transformation.
@@ -133,7 +133,7 @@ export default function Footer(){
                     </span>
                     <div>
                       <strong>Email Us</strong>
-                      <a href="mailto:info@ryzax.com" className="hover:text-primary hover:underline transition-all duration-200">contact@ryzax.com</a>
+                      <a href="mailto:info@synxta.com" className="hover:text-primary hover:underline transition-all duration-200">contact@Synxta.com</a>
                     </div>
                   </li>
                   
@@ -148,7 +148,7 @@ export default function Footer(){
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 items-center">
             <div className="text-center md:text-left">
               <div className="text-sm">
-                Copyright © 2025 by <span className="font-semibold text-primary">Ryzax Technologies</span>. All Rights Reserved.
+                Copyright © 2025 by <span className="font-semibold text-primary">Synxta</span>. All Rights Reserved.
               </div>
             </div>
             <div className="md:text-right">

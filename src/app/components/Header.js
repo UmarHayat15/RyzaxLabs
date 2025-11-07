@@ -103,8 +103,8 @@ export default function HeroHeader() {
             {/* Logo */}
             <Link href="/" className="flex w-[70px] sm:w-[170px] select-none items-center bg-transparent transition-transform hover:scale-105 px-3 py-2 rounded-lg dark:bg-transparent">
               <img
-                src="/images/ryzax.png"
-                alt="Ryzax Technologies"
+                src="/images/Synxta.png"
+                alt="Synxta"
                 className="h-auto w-full"
               />
             </Link>
@@ -348,8 +348,8 @@ export default function HeroHeader() {
             <div className="flex items-center justify-between px-5 py-4 border-b border-border">
               <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-3 px-2 py-1 rounded-lg bg-slate-900 dark:bg-transparent">
                 <img
-                  src="/images/ryzax.png"
-                  alt="Ryzax Technologies"
+                  src="/images/Synxta.png"
+                  alt="Synxta"
                   className="h-8 w-auto"
                 />
               </Link>
@@ -442,7 +442,7 @@ export default function HeroHeader() {
                 {/* Meta */}
                 <li className="pt-3">
                   <div className="rounded-lg border border-border bg-card/50 p-3 text-[13px] text-muted-foreground">
-                    <p className="font-semibold text-primary">Ryzax Technologies</p>
+                    <p className="font-semibold text-primary">Synxta</p>
                     <p>Building the Future of Digital</p>
                     <p>Islamabad, Pakistan</p>
                     <div className="mt-2 flex items-center gap-3">
@@ -452,9 +452,9 @@ export default function HeroHeader() {
                       <span className="h-3 w-px bg-border" />
                       <Link
                         className="underline decoration-dotted hover:text-primary transition-colors"
-                        href="mailto:info@ryzax.com"
+                        href="mailto:info@synxta.com"
                       >
-                        info@ryzax.com
+                        contact@synxta.com
                       </Link>
                     </div>
                   </div>

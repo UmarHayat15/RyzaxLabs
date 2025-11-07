@@ -121,7 +121,7 @@ export default function DevOpsPage() {
     {
       name: "Sarah Chen",
       role: "CTO at TechFlow",
-      content: "RyzaxLabs transformed our deployment process. We went from weekly releases to multiple daily deployments with zero downtime.",
+      content: "Synxta transformed our deployment process. We went from weekly releases to multiple daily deployments with zero downtime.",
       rating: 5
     },
     {
@@ -580,7 +580,7 @@ export default function DevOpsPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-blue-900/20 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Settings className="w-4 h-4" />
               Comprehensive DevOps Solutions
             </div>
@@ -609,7 +609,7 @@ export default function DevOpsPage() {
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 text-blue-400 dark:group-hover:text-blue-400 transition-colors">
                   {service.title}
                 </h3>
                 
