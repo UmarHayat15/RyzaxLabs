@@ -39,10 +39,10 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center opacity-10" />
         <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-24 text-center">
           <h1 className="text-5xl sm:text-6xl font-black text-white mb-4">
-            Let's Build Something <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">Amazing</span>
+            Lets Build Something <span className="bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">Amazing</span>
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Ready to transform your ideas into reality? Get in touch and let's discuss your next project.
+            Ready to transform your ideas into reality? Get in touch and lets discuss your next project.
           </p>
         </div>
       </section>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-foreground mb-3">Call Us</h3>
                 <p className="text-muted-foreground mb-4">Speak directly with our team</p>
                 <a href="tel:+923001234567" className="text-primary font-semibold hover:underline">
-                  +92 300 1234567
+            +92 3010 006837
                 </a>
               </div>
             </div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-bold text-foreground mb-3">Visit Us</h3>
                 <p className="text-muted-foreground mb-4">Come see us in person</p>
                 <p className="text-primary font-semibold">
-                  Islamabad, Pakistan
+               Office no. 3050A World Trade Centre Giga Mall Islamabad, Pakistan 
                 </p>
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
               Send Us a Message
             </h2>
             <p className="text-muted-foreground text-lg">
-              Tell us about your project and we'll get back to you within 24 hours
+              Tell us about your project and we will get back to you within 24 hours
             </p>
           </div>
 

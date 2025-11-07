@@ -10,29 +10,29 @@ import Link from "next/link";
 
 const TEAM = [
   {
-    name: "Jennifer Garcia",
+    name: "Umar Hayat",
     role: "DevOps Lead",
-    img: "https://expert-themes.com/html/globex/images/resource/team-4.jpg",
+    img: "/images/umar-hayat.png",
     href: "/contact",
   },
   {
-    name: "Robert Liam",
+    name: "Khubaib Khalid",
     role: "Web Lead",
-    img: "https://expert-themes.com/html/globex/images/resource/team-4.jpg",
+    img: "/images/khubaib-khalid.png",
     href: "/contact",
   },
   {
-    name: "Jassica Ethan",
+    name: "Syed Hesham",
     role: "AI Lead",
-    img: "https://expert-themes.com/html/globex/images/resource/team-4.jpg",
+    img: "/images/syed-hasham.png",
     href: "/contact",
   },
-  {
-    name: "Adaim Mrala",
-    role: "IT Service Officer",
-    img: "https://expert-themes.com/html/globex/images/resource/team-4.jpg",
-    href: "/contact",
-  },
+  // {
+  //   name: "Adaim Mrala",
+  //   role: "IT Service Officer",
+  //   img: "/images/",
+  //   href: "/contact",
+  // },
 ];
 
 export default function Home() {
@@ -61,7 +61,7 @@ export default function Home() {
                 Does any industry face a more complex audience journey and marketing sales
                 process than B2B technology? Consider the number of people who influence a sale,
                 the length of the decision-making cycle, the competing interests of the people who
-                purchase, implement, manage, and use the technology. It's a lot meaningful content here.
+                purchase, implement, manage, and use the technology. It is a lot meaningful content here.
               </p>
 
               {/* Features */}
@@ -98,7 +98,7 @@ export default function Home() {
                   <div>
                     <h6 className="text-[18px] font-semibold text-foreground">Quick Support</h6>
                     <p className="mt-1 text-[15px] text-muted-foreground">
-                      We'll help you test bold new ideas while sharing your.
+                      We will help you test bold new ideas while sharing your.
                     </p>
                   </div>
                 </div>
@@ -523,7 +523,7 @@ export default function Home() {
           <div className="absolute bottom-32 left-1/3 w-20 h-20 bg-cyan-500/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}} />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+        <div className="relative z-10  mx-auto max-w-7xl px-6 py-20">
           {/* Enhanced Header */}
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
@@ -552,17 +552,13 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Ultimate Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
             {TEAM.map((member, index) => (
               <article key={member.name} className="group relative">
                 {/* Floating Card Container */}
                 <div className="relative transform transition-all duration-700 group-hover:-translate-y-8 group-hover:rotate-1">
-                  {/* Glow Effect */}
                   <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-500/30 to-cyan-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                  
-                  {/* Main Card */}
-                  <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
                     {/* Animated Border */}
                     <div className="absolute inset-0 rounded-2xl">
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{padding: '2px'}}>

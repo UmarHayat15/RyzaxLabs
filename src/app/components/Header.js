@@ -101,7 +101,7 @@ export default function HeroHeader() {
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
           <div className="flex h-16 sm:h-20 items-center justify-between gap-3 sm:gap-6">
             {/* Logo */}
-            <Link href="/" className="flex w-[70px] sm:w-[170px] select-none items-center transition-transform hover:scale-105 px-3 py-2 rounded-lg bg-slate-900 dark:bg-transparent">
+            <Link href="/" className="flex w-[70px] sm:w-[170px] select-none items-center bg-transparent transition-transform hover:scale-105 px-3 py-2 rounded-lg dark:bg-transparent">
               <img
                 src="/images/ryzax.png"
                 alt="Ryzax Technologies"

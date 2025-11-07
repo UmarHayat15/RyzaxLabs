@@ -110,7 +110,7 @@ export default function Footer(){
                     </span>
                     <div>
                       <strong>Office</strong>
-                      Islamabad, Pakistan
+                      Office no. 3050A World Trade Centre Giga Mall Islamabad, Pakistan
                     </div>
                   </li>
                   <li>
@@ -121,7 +121,7 @@ export default function Footer(){
                     </span>
                     <div>
                       <strong>Call Us</strong>
-                      <a href="tel:+923001234567" className="hover:text-primary hover:underline transition-all duration-200">+92 300 1234567</a>
+                      <a href="tel:+923010006837" className="hover:text-primary hover:underline transition-all duration-200">+92 301 0006837</a>
                     </div>
                   </li>
                   <li>
@@ -133,21 +133,10 @@ export default function Footer(){
                     </span>
                     <div>
                       <strong>Email Us</strong>
-                      <a href="mailto:info@ryzax.com" className="hover:text-primary hover:underline transition-all duration-200">info@ryzax.com</a>
+                      <a href="mailto:info@ryzax.com" className="hover:text-primary hover:underline transition-all duration-200">contact@ryzax.com</a>
                     </div>
                   </li>
-                  <li>
-                    <span className="icon">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12,6 12,12 16,14"/>
-                      </svg>
-                    </span>
-                    <div>
-                      <strong>Business Hours</strong>
-                      Mon - Fri: 9:00 AM - 6:00 PM
-                    </div>
-                  </li>
+                  
                 </ul>
               </div>
             </div>

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Privacy Policy | SeaTech Consulting",
+  title: "Privacy Policy | Ryzax",
   description:
-    "Privacy Policy for SeaTech Consulting. Learn how we collect, use, and protect your information across our digital products and services.",
+    "Privacy Policy for Rssyzax. Learn how we collect, use, and protect your information across our digital products and services.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -48,13 +48,13 @@ export default function PrivacyPolicyPage() {
             <div className="rounded-lg border border-slate-200 p-4">
               <p className="text-xs font-semibold tracking-wide text-[#0B4D8F]">WHO WE ARE</p>
               <p className="mt-1 text-[14px] text-slate-700">
-                SeaTech Consulting • 3055 NW YEON AVE UNTT#271, Portland, OR 97210 • (206) 571-7659
+                     Office no. 3050A World Trade Centre Giga Mall Islamabad, Pakistan • +923010006837
               </p>
             </div>
             <div className="rounded-lg border border-slate-200 p-4">
               <p className="text-xs font-semibold tracking-wide text-[#0B4D8F]">CONTACT</p>
               <p className="mt-1 text-[14px] text-slate-700">
-                info@seatechconsulting.com • order@seatechconsulting.com
+                info@ryzax.com • order@ryzax.com
               </p>
             </div>
             <div className="rounded-lg border border-slate-200 p-4">
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="mt-10 text-2xl font-bold">1) Scope</h2>
           <p className="mt-2 text-[15px] leading-7 text-slate-700">
             This Policy applies to information we process in connection with our Services, including
-            our websites (e.g., seatechconsulting.com and related pages), contact forms, proposals,
+            our websites (e.g., ryzax.com and related pages), contact forms, proposals,
             project communications, and client portals. It does not cover third-party websites or
             services that we do not control.
           </p>
@@ -201,9 +201,9 @@ export default function PrivacyPolicyPage() {
               To exercise rights, email{" "}
               <a
                 className="underline decoration-dotted text-[#0B4D8F] hover:brightness-110"
-                href="mailto:info@seatechconsulting.com"
+                href="mailto:info@ryzax.com"
               >
-                info@seatechconsulting.com
+                info@ryzax.com
               </a>{" "}
               with “Privacy Request” in the subject. We may need to verify your identity.
             </p>
@@ -240,22 +240,22 @@ export default function PrivacyPolicyPage() {
           <h2 className="mt-8 text-2xl font-bold">18) Contact Us</h2>
           <div className="mt-3 rounded-lg border border-slate-200 p-5">
             <p className="text-[15px] leading-7 text-slate-700">
-              <span className="font-semibold">SeaTech Consulting</span> <br />
-              3055 NW YEON AVE UNTT#271 <br />
-              Portland, OR 97210, USA
+              <span className="font-semibold">Ryzax </span> <br />
+          Office no. 3050A World Trade Centre <br />
+           Giga Mall Islamabad, Pakistan
             </p>
             <div className="mt-3 flex flex-wrap items-center gap-4">
               <a
-                href="tel:+12065717659"
+                href="tel:+923010006837"
                 className="inline-flex items-center rounded-md border border-slate-200 px-3 py-2 text-sm font-semibold text-[#0A2C4A] hover:bg-slate-50"
               >
-                Call: (206) 571-7659
+                Call: 923010006837
               </a>
               <a
-                href="mailto:info@seatechconsulting.com"
+                href="mailto:info@ryzax.com"
                 className="inline-flex items-center rounded-md bg-[#0B4D8F] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:brightness-110"
               >
-                Email: info@seatechconsulting.com
+                Email: info@ryzax.com
               </a>
             </div>
           </div>
