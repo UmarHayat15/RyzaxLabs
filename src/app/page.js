@@ -22,7 +22,7 @@ const TEAM = [
     href: "/contact",
   },
   {
-    name: "Syed Hesham",
+    name: "Syed Heshaam",
     role: "AI Lead",
     img: "/images/syed-hasham.png",
     href: "/contact",
