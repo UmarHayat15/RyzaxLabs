@@ -8,6 +8,55 @@ import Footer from "./components/Footer";
 import HeroSlider from "./components/Hero";
 import Link from "next/link";
 
+import { Code, Palette, Rocket, Brain, Globe, Zap } from 'lucide-react';
+
+const EXPERTISE = [
+  {
+    icon: Code,
+    title: "Full-Stack Development",
+    description: "Building scalable applications with modern frameworks and architectures",
+    skills: ["React", "Node.js", "PostgreSQL"],
+    color: "from-blue-500 to-cyan-500"
+  },
+  {
+    icon: Palette,
+    title: "UI/UX Design",
+    description: "Crafting intuitive and beautiful user experiences that delight",
+    skills: ["Figma", "Design Systems", "Prototyping"],
+    color: "from-purple-500 to-pink-500"
+  },
+  {
+    icon: Brain,
+    title: "AI & Machine Learning",
+    description: "Leveraging cutting-edge AI to solve complex business challenges",
+    skills: ["LLMs", "Computer Vision", "Analytics"],
+    color: "from-emerald-500 to-teal-500"
+  },
+  {
+    icon: Rocket,
+    title: "Product Strategy",
+    description: "Transforming ideas into market-ready products with clear vision",
+    skills: ["Roadmapping", "Market Research", "Growth"],
+    color: "from-orange-500 to-red-500"
+  },
+  {
+    icon: Globe,
+    title: "Cloud Architecture",
+    description: "Designing resilient and performant cloud-native solutions",
+    skills: ["AWS", "Kubernetes", "Serverless"],
+    color: "from-indigo-500 to-blue-500"
+  },
+  {
+    icon: Zap,
+    title: "Performance Optimization",
+    description: "Maximizing speed and efficiency across all digital touchpoints",
+    skills: ["Web Vitals", "CDN", "Caching"],
+    color: "from-yellow-500 to-orange-500"
+  }
+];
+
+
+
 const TEAM = [
   {
     name: "Umar Hayat",
@@ -523,118 +572,140 @@ export default function Home() {
           <div className="absolute bottom-32 left-1/3 w-20 h-20 bg-cyan-500/20 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}} />
         </div>
 
-        <div className="relative z-10  mx-auto max-w-7xl px-6 py-20">
-          {/* Enhanced Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
-              <div className="flex gap-1">
-                <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                <div className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" style={{animationDelay: '0.2s'}} />
-                <div className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" style={{animationDelay: '0.4s'}} />
-              </div>
-              <span className="text-sm font-semibold tracking-[0.2em] text-white/80 uppercase">
-                Meet Our Experts
-              </span>
-            </div>
-            
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.9] mb-6">
-              <span className="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
-                Creative Minds
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-primary via-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Behind Innovation
-              </span>
-            </h2>
-            
-            <p className="text-white/70 text-lg max-w-3xl mx-auto leading-relaxed">
-              Our world-class team of visionaries, architects, and innovators who transform ideas into digital masterpieces.
-            </p>
-          </div>
+  
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {TEAM.map((member, index) => (
-              <article key={member.name} className="group relative">
-                {/* Floating Card Container */}
-                <div className="relative transform transition-all duration-700 group-hover:-translate-y-8 group-hover:rotate-1">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-primary/30 via-purple-500/30 to-cyan-500/30 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700" />
-                    <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
-                    {/* Animated Border */}
-                    <div className="absolute inset-0 rounded-2xl">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary via-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{padding: '2px'}}>
-                        <div className="h-full w-full rounded-2xl bg-slate-900/90 backdrop-blur-xl" />
-                      </div>
-                    </div>
-                    
-                    {/* Image Container with 3D Effect */}
-                    <div className="relative aspect-[4/5] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10" />
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
-                        style={{
-                          filter: 'contrast(1.1) saturate(1.2)',
-                        }}
-                      />
-                      
-                      {/* Floating Particles */}
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                        <div className="absolute top-4 right-4 w-2 h-2 bg-primary rounded-full animate-ping" />
-                        <div className="absolute top-8 left-6 w-1.5 h-1.5 bg-purple-400 rounded-full animate-bounce" style={{animationDelay: '0.5s'}} />
-                        <div className="absolute bottom-12 right-8 w-1 h-1 bg-cyan-400 rounded-full animate-pulse" style={{animationDelay: '1s'}} />
-                      </div>
-                      
-                      {/* Holographic Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                    </div>
-                    
-                    {/* Enhanced Info Panel */}
-                    <div className="relative p-6">
-                      {/* Animated Background */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                      
-                      <div className="relative z-10">
-                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-cyan-400 group-hover:bg-clip-text transition-all duration-500">
-                          {member.name}
-                        </h3>
-                        
-                        <div className="flex items-center gap-2 mb-4">
-                          <div className="h-1 w-8 bg-gradient-to-r from-primary to-purple-400 rounded-full" />
-                          <span className="text-sm font-medium text-white/70 group-hover:text-white/90 transition-colors duration-300">
-                            {member.role}
-                          </span>
-                        </div>
-                        
-                        {/* Skill Indicators */}
-                        <div className="flex gap-2 mb-4">
-                          {[...Array(3)].map((_, i) => (
-                            <div key={i} className="h-1.5 w-6 bg-white/20 rounded-full overflow-hidden">
-                              <div 
-                                className="h-full bg-gradient-to-r from-primary to-cyan-400 rounded-full transition-all duration-1000 group-hover:w-full" 
-                                style={{width: `${60 + i * 15}%`, transitionDelay: `${i * 200}ms`}}
-                              />
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* Interactive Button */}
-                        <a href="/contact" className="block w-full py-2 px-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/50 rounded-lg text-white/80 hover:text-white text-sm font-medium transition-all duration-300 group-hover:transform group-hover:scale-105 text-center">
-                          Contact Us
-                        </a>
-                      </div>
+    <div className="relative z-10 mx-auto max-w-7xl px-6 py-20">
+      {/* Enhanced Header */}
+      <div className="text-center mb-20">
+        <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
+          <div className="flex gap-1">
+            <div className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
+            <div className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" style={{animationDelay: '0.2s'}} />
+            <div className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" style={{animationDelay: '0.4s'}} />
+          </div>
+          <span className="text-sm font-semibold tracking-[0.2em] text-white/80 uppercase">
+            Our Expertise
+          </span>
+        </div>
+        
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[0.9] mb-6">
+          <span className="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent">
+            What We Do
+          </span>
+          <br />
+          <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            Best In Class
+          </span>
+        </h2>
+        
+        <p className="text-white/70 text-lg max-w-3xl mx-auto leading-relaxed">
+          Delivering excellence across every aspect of digital innovation with specialized expertise and proven methodologies.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        {EXPERTISE.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <article key={item.title} className="group relative">
+              {/* Floating Card Container */}
+              <div className="relative transform transition-all duration-700 group-hover:-translate-y-8 group-hover:rotate-1">
+                <div className={`absolute -inset-4 bg-gradient-to-r ${item.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-all duration-700`} />
+                
+                <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl">
+                  {/* Animated Border */}
+                  <div className="absolute inset-0 rounded-2xl">
+                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} style={{padding: '2px'}}>
+                      <div className="h-full w-full rounded-2xl bg-slate-900/90 backdrop-blur-xl" />
                     </div>
                   </div>
                   
-                  {/* Floating Elements */}
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary/80 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:animate-spin">
-                    <div className="w-2 h-2 bg-white rounded-full" />
+                  {/* Icon Container with 3D Effect */}
+                  <div className="relative aspect-[4/3] overflow-hidden flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-800/50 to-slate-900/50" />
+                    
+                    {/* Animated Grid Background */}
+                    <div className="absolute inset-0 opacity-20">
+                      <div className="absolute inset-0" style={{
+                        backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
+                        backgroundSize: '50px 50px'
+                      }} />
+                    </div>
+                    
+                    {/* Icon with Animation */}
+                    <div className={`relative z-10 p-8 rounded-full bg-gradient-to-br ${item.color} transform transition-all duration-700 group-hover:scale-110 group-hover:rotate-12`}>
+                      <Icon className="w-16 h-16 text-white" strokeWidth={1.5} />
+                    </div>
+                    
+                    {/* Floating Particles */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                      <div className="absolute top-8 right-8 w-2 h-2 bg-white/80 rounded-full animate-ping" />
+                      <div className="absolute top-12 left-10 w-1.5 h-1.5 bg-white/60 rounded-full animate-bounce" style={{animationDelay: '0.5s'}} />
+                      <div className="absolute bottom-16 right-12 w-1 h-1 bg-white/40 rounded-full animate-pulse" style={{animationDelay: '1s'}} />
+                    </div>
+                    
+                    {/* Holographic Overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-20 transition-opacity duration-700`} />
+                  </div>
+                  
+                  {/* Enhanced Info Panel */}
+                  <div className="relative p-6">
+                    {/* Animated Background */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-700`} />
+                    
+                    <div className="relative z-10">
+                      <h3 className={`text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:${item.color} group-hover:bg-clip-text transition-all duration-500`}>
+                        {item.title}
+                      </h3>
+                      
+                      <p className="text-white/60 text-sm leading-relaxed mb-4 group-hover:text-white/80 transition-colors duration-300">
+                        {item.description}
+                      </p>
+                      
+                      {/* Skill Tags */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {item.skills.map((skill, i) => (
+                          <span 
+                            key={skill} 
+                            className="px-3 py-1 text-xs font-medium text-white/70 bg-white/5 border border-white/10 rounded-full group-hover:border-white/30 transition-all duration-300"
+                            style={{transitionDelay: `${i * 100}ms`}}
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      {/* Skill Level Indicators */}
+                      <div className="flex gap-2 mb-4">
+                        {[...Array(3)].map((_, i) => (
+                          <div key={i} className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">
+                            <div 
+                              className={`h-full bg-gradient-to-r ${item.color} rounded-full transition-all duration-1000 group-hover:w-full`}
+                              style={{width: `${60 + i * 15}%`, transitionDelay: `${i * 200}ms`}}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* Interactive Button */}
+                      <a href="/contact" className={`block w-full py-2 px-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 rounded-lg text-white/80 hover:text-white text-sm font-medium transition-all duration-300 group-hover:transform group-hover:scale-105 text-center`}>
+                        Learn More
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
-        </div>
+                
+                {/* Floating Elements */}
+                <div className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r ${item.color} rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:animate-spin`}>
+                  <div className="w-2 h-2 bg-white rounded-full" />
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  
         
         {/* Custom Animations */}
         <style jsx>{`
@@ -645,7 +716,7 @@ export default function Home() {
         `}</style>
       </section>
 
-      <ClientSpotlight speed={28} gap={48} />
+      {/* <ClientSpotlight  speed={28} gap={48} /> */}
     </>
   );
 }
